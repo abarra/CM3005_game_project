@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     string mainGameSceneName = "Main";
     [SerializeField] GameObject buttonList;
-    Button[] buttons;
+    [SerializeField] Button[] buttons;
     void Start()
     {
         buttons = buttonList.GetComponentsInChildren<Button>();
