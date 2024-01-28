@@ -12,6 +12,10 @@ using UnityEngine.UI;
 
 public class EmotionController : MonoBehaviour
 {
+
+    public static EmotionController instance = null;
+
+
     public int satisfactionPoint;
     
     private enum SatisfactionLevels
@@ -33,25 +37,46 @@ public class EmotionController : MonoBehaviour
     /* fire each time saisfaction level is incresed */
     public delegate void SatisfactionIncreased(int points);
 
-    public event SatisfactionIncreased OnSatisfactionIncreased;
+    public  static event SatisfactionIncreased OnSatisfactionIncreased;
 
 
     /* fire each time saisfaction level is decreased */
     public delegate void SatisfactionDecreased(int points);
 
-    public event SatisfactionDecreased OnSatisfactionDecreased;
+    public static event SatisfactionDecreased OnSatisfactionDecreased;
 
 
     /* Satisfaction Level changed */
-    public delegate void SatisfactionLevelChanged();
+    public delegate void SatisfactionLevelChanged(bool isDecreased, string prevLevel, string newLevel);
 
-    public event SatisfactionLevelChanged OnSatisfactionLevelChanged;
+    public static event SatisfactionLevelChanged OnSatisfactionLevelChanged;
 
 
     /* Satisfaction Level changed */
     public delegate void ZeroLevelReached();
 
-    public event ZeroLevelReached OnZeroLevelReached;
+    public static event ZeroLevelReached OnZeroLevelReached;
+
+
+    void Awake()
+    {
+        // the EmotionController is a Singleton
+        // store this as the instance of this object
+       
+        if (instance == null)
+        { 
+            instance = this; 
+        }
+        else if (instance == this)
+        { 
+            Destroy(gameObject); 
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+
+    }
+
 
 
     private void Start()
@@ -61,6 +86,7 @@ public class EmotionController : MonoBehaviour
     }
     public void IncreaseSatisfuction(int amount) {
         int prevSatisfactionPoint = satisfactionPoint;
+        string prevSatisfactionLevel = satisfactionLevel.ToString();
         int newSatisfactionPoint = Math.Min(satisfactionPoint + amount, 100);
         satisfactionPoint = newSatisfactionPoint;
 
@@ -74,7 +100,7 @@ public class EmotionController : MonoBehaviour
                     // we got to  High satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.High;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(false, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 break;
             case SatisfactionLevels.Low:
@@ -83,14 +109,14 @@ public class EmotionController : MonoBehaviour
                     // we got to  High satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.High;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(false, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 else if (newSatisfactionPoint > lowTheshold) {
 
                     // we got to  Medium satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.Medium;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(false, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 break;
 
@@ -101,11 +127,12 @@ public class EmotionController : MonoBehaviour
     public void DecreaseSatisfuction(int amount)
     {
         int prevSatisfactionPoint = satisfactionPoint;
+        string prevSatisfactionLevel = satisfactionLevel.ToString();
         int newSatisfactionPoint = Math.Max(satisfactionPoint - amount, 0);
         satisfactionPoint = newSatisfactionPoint;
 
         // fire change points events 
-        OnSatisfactionIncreased?.Invoke(newSatisfactionPoint);
+        OnSatisfactionDecreased?.Invoke(newSatisfactionPoint);
 
         // check if the Satisfaction level should be changed
         switch (satisfactionLevel)
@@ -116,7 +143,7 @@ public class EmotionController : MonoBehaviour
                     // we got to  High satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.Low;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(true, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 break;
             case SatisfactionLevels.High:
@@ -125,7 +152,7 @@ public class EmotionController : MonoBehaviour
                     // we got to  High satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.Low;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(true, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 else if (newSatisfactionPoint < mediumTheshold )
                 {
@@ -133,7 +160,7 @@ public class EmotionController : MonoBehaviour
                     // we got to  Medium satisfaction  zone
                     satisfactionLevel = SatisfactionLevels.Medium;
                     // fire corresponding event
-                    OnSatisfactionLevelChanged?.Invoke();
+                    OnSatisfactionLevelChanged?.Invoke(true, prevSatisfactionLevel, satisfactionLevel.ToString());
                 }
                 break;
 

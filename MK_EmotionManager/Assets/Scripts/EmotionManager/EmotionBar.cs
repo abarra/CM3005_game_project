@@ -23,7 +23,14 @@ public class EmotionBar : MonoBehaviour
 
     private void OnEnable()
     {
-        FindObjectOfType<EmotionController>().OnSatisfactionIncreased += SetSatisfaction;
+        EmotionController.OnSatisfactionIncreased += SetSatisfaction;
+        EmotionController.OnSatisfactionDecreased += SetSatisfaction;
+    }
+
+    private void OnDisable()
+    {
+        EmotionController.OnSatisfactionIncreased -= SetSatisfaction;
+        EmotionController.OnSatisfactionDecreased += SetSatisfaction;
     }
 
     private void Start()
