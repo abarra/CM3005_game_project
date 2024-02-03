@@ -46,8 +46,6 @@ public class UIManager : MonoBehaviour
         Debug.Log($"Deactivating {name} view");
         if(instantiatedViews.TryGetValue(name, out View view))
         {
-                    Debug.Log($"Deactivating {name} view 222");
-
             view.gameObject.SetActive(false);
             view.DeActivate();
         }
