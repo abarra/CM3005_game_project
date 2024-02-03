@@ -30,18 +30,18 @@ public class UIManager : MonoBehaviour
     }
     
 
-    public void ActiveView(string name)
+    public void ActivateView(string name)
     {
         Debug.Log($"Activating {name} view");
 
         if(instantiatedViews.TryGetValue(name, out View view))
         {
             view.gameObject.SetActive(true);
-            view.Active();
+            view.Activate();
         }
     }
 
-    public void DeActiveView(string name)
+    public void DeActivateView(string name)
     {
         Debug.Log($"Deactivating {name} view");
         if(instantiatedViews.TryGetValue(name, out View view))
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
                     Debug.Log($"Deactivating {name} view 222");
 
             view.gameObject.SetActive(false);
-            view.DeActive();
+            view.DeActivate();
         }
     }
 

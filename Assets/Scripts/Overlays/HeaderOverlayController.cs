@@ -18,6 +18,6 @@ public class HeaderOverlayController : MonoBehaviour
 
     public void OpenGarage()
     {
-        UIManager.Instance.ActiveView("GarageView");
+        UIManager.Instance.ActivateView("GarageView");
     }
 }

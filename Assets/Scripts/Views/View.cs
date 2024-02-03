@@ -16,19 +16,19 @@ public class View : MonoBehaviour
         
     }
 
-    public virtual void Active()
+    public virtual void Activate()
     {
 
     }
 
-    public virtual void DeActive()
+    public virtual void DeActivate()
     {
         
     }
 
     public virtual void CloseView()
     {
-        UIManager.Instance.DeActiveView(this.gameObject.name);
+        UIManager.Instance.DeActivateView(this.gameObject.name);
     }
 
 }
