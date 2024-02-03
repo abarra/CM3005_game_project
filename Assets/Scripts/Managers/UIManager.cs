@@ -4,15 +4,69 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static UIManager _instance;
+    public static UIManager Instance { get { return _instance; } }
+    
+    [SerializeField]
+    private GameObject parentView;
+   
+    [SerializeField]
+    private View[] viewList;
+
+    private Dictionary<string, View> instantiatedViews;
+    
+    private void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        LoadViews();
+    }
+    
+
+    public void ActiveView(string name)
+    {
+        Debug.Log($"Activating {name} view");
+
+        if(instantiatedViews.TryGetValue(name, out View view))
+        {
+            view.gameObject.SetActive(true);
+            view.Active();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeActiveView(string name)
     {
-        
+        Debug.Log($"Deactivating {name} view");
+        if(instantiatedViews.TryGetValue(name, out View view))
+        {
+                    Debug.Log($"Deactivating {name} view 222");
+
+            view.gameObject.SetActive(false);
+            view.DeActive();
+        }
+    }
+
+    
+
+    private void LoadViews()
+    {
+        instantiatedViews = new Dictionary<string, View>();
+
+        foreach(var view in viewList)
+        {
+            var viewGameObject = Instantiate(view, parentView.transform);
+            viewGameObject.name = view.name;
+            viewGameObject.gameObject.SetActive(false);
+
+            instantiatedViews.Add(viewGameObject.gameObject.name, viewGameObject);
+
+        }
     }
 }
