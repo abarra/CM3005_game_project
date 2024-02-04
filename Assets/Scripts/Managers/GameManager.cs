@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         // Load the first level
         LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        UIManager.Instance.ActivateView("MainMenuView");
     }
     
     private void LoadLevel(int levelIndex)
