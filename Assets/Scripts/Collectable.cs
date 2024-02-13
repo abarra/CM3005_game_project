@@ -9,12 +9,14 @@ public class Collectable : MonoBehaviour
     public int emotionalValue = 0;
 
     protected EmotionController _ec;
-    
+    protected SoundManager _sm;
+
     void Start()
     {
         _ec = GameObject.Find("EmotionManager").GetComponent<EmotionController>();
+        _sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
-    
+
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class Collectable : MonoBehaviour
         //If player collected collactable, then destroy object 
         if (Col.CompareTag("Player"))
         {
+            _sm.PlayCollectableSound();
             Destroy(gameObject);
         }
     }
