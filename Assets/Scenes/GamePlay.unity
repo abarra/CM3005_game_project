@@ -540,6 +540,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectableProto
       objectReference: {fileID: 0}
+    - target: {fileID: 4213958634460907594, guid: 748fd47700eabc34bb5dbdbe8052f10b,
+        type: 3}
+      propertyPath: timeValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748fd47700eabc34bb5dbdbe8052f10b, type: 3}
 --- !u!4 &1354123695 stripped
@@ -695,6 +700,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectableProto (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4213958634460907594, guid: 748fd47700eabc34bb5dbdbe8052f10b,
+        type: 3}
+      propertyPath: timeValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748fd47700eabc34bb5dbdbe8052f10b, type: 3}
 --- !u!4 &1469860579 stripped
@@ -774,6 +784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CollectableProto (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213958634460907594, guid: 748fd47700eabc34bb5dbdbe8052f10b,
+        type: 3}
+      propertyPath: timeValue
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748fd47700eabc34bb5dbdbe8052f10b, type: 3}
