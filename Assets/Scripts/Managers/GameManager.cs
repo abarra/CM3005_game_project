@@ -1,4 +1,4 @@
-using UnityEditorInternal;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private GameState _state;
     public static GameManager Instance { get { return _instance; } }
     
+    public static event Action OnGameOver;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -82,7 +84,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _state = GameState.over;
+        
+        OnGameOver?.Invoke();
+
         //TODO show game over overlay
         Debug.Log("GameOver");
+
     }
 }
