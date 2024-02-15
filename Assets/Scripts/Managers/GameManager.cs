@@ -1,9 +1,18 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        pause,
+        running, 
+        over,
+    }
+
     private static GameManager _instance;
+    private GameState _state;
     public static GameManager Instance { get { return _instance; } }
     
     private void Awake()
@@ -19,8 +28,12 @@ public class GameManager : MonoBehaviour
         }
     }
     
+
     private void Start()
     {
+        TimerManager.OnTimerEnd -= GameOver;
+        TimerManager.OnTimerEnd += GameOver;
+
         // Initialize the game
         InitializeGame();
     }
@@ -36,5 +49,40 @@ public class GameManager : MonoBehaviour
     {
         // Load the specified level
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public void StartGame()
+    {
+        _state = GameState.running;
+        TimerManager.Instance.StartTimer();
+    }
+
+    public void PauseGame()
+    {
+        _state = GameState.pause;
+        TimerManager.Instance.PauseTimer();
+
+    }
+
+    private void Update()
+    {
+        // Check for game over condition
+        if (_state != GameState.over)
+        {
+            // Check other game conditions, handle player input, etc.
+        }
+        else
+        {
+            // Handle game over state, show game over screen, restart, etc.
+            UIManager.Instance.ActivateView("MainMenuView");
+
+        }
+    }
+
+    public void GameOver()
+    {
+        _state = GameState.over;
+        //TODO show game over overlay
+        Debug.Log("GameOver");
     }
 }
