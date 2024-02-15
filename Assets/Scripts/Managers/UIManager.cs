@@ -32,12 +32,15 @@ public class UIManager : MonoBehaviour
 
     public void ActivateView(string name)
     {
-        Debug.Log($"Activating {name} view");
-
         if(instantiatedViews.TryGetValue(name, out View view))
         {
-            view.gameObject.SetActive(true);
-            view.Activate();
+            if(!view.gameObject.activeSelf)
+            {
+                Debug.Log($"Activating {name} view");
+
+                view.gameObject.SetActive(true);
+                view.Activate();
+            }
         }
     }
 
