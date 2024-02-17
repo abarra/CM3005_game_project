@@ -15,7 +15,7 @@ public class MainMenu : View
      Use on Button OnClick method in Editor.
      Add the name of the scene i.e. "Garage" as parameter here.
      **/
-    public void OnButtonPressLoadScene(string sceneName) => SceneManager.LoadScene(sceneName);
+    //public void OnButtonPressLoadScene(string sceneName) => SceneManager.LoadScene(sceneName);
     /***
     Enables selected menu given as string parameter, disables all else.
     Use on Button OnClick Function in Editor.
@@ -28,5 +28,10 @@ public class MainMenu : View
         //set active for selected sub-menu
         GameObject activeMenu = menuList.Find(x => x.name == menuName);
         activeMenu.SetActive(true);
+    }
+
+    public void ChangeMasterVol()
+    {
+        //mixer.setVol(Mathf.Log10(slider)*20);
     }
 }
