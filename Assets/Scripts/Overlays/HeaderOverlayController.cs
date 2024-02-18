@@ -20,4 +20,10 @@ public class HeaderOverlayController : MonoBehaviour
     {
         UIManager.Instance.ActivateView("GarageView");
     }
+
+    public void OpenPauseMenu()
+    {
+        UIManager.Instance.ActivateView("PauseMenuView");
+        GameManager.Instance.PauseGame();
+    }
 }
