@@ -5,11 +5,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class MainMenu : View
 {
     [SerializeField] List<GameObject> menuList;
+    List<Button> buttons;
     /**
      Loads scene given sceneName string parameter.
      Use on Button OnClick method in Editor.
@@ -21,6 +21,16 @@ public class MainMenu : View
     Use on Button OnClick Function in Editor.
     Add the name of the menu i.e. "Level Select" as parameter.
     ***/
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+    }
     public void OnButtonPressLoadMenu(string menuName)
     {
         //set inactive for all other sub-menus
@@ -33,5 +43,11 @@ public class MainMenu : View
     public void ChangeMasterVol()
     {
         //mixer.setVol(Mathf.Log10(slider)*20);
+    }
+
+    public void StartGame()
+    {
+        GameManager.Instance.StartGame();
+        CloseView();
     }
 }
