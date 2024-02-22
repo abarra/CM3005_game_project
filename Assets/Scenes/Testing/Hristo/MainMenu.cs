@@ -15,20 +15,10 @@ public class MainMenu : View
     [SerializeField] Slider soundFXSlider;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource onClickSound;
-    [SerializeField] Toggle masterToggle;
-    [SerializeField] Toggle musicToggle;
-    [SerializeField] Toggle soundFXToggle;
-    /**
-     Loads scene given sceneName string parameter.
-     Use on Button OnClick method in Editor.
-     Add the name of the scene i.e. "Garage" as parameter here.
-     **/
-    //public void OnButtonPressLoadScene(string sceneName) => SceneManager.LoadScene(sceneName);
-    /***
-    Enables selected menu given as string parameter, disables all else.
-    Use on Button OnClick Function in Editor.
-    Add the name of the menu i.e. "Level Select" as parameter.
-    ***/
+    [SerializeField] MuteButton masterMute;
+    [SerializeField] MuteButton musicMute;
+    [SerializeField] MuteButton soundFXMute;
+
     protected override void Start()
     {
         base.Start();
@@ -95,10 +85,9 @@ public class MainMenu : View
             soundOn = true;
         }
 
-        masterToggle.SetIsOnWithoutNotify(masterOn);
-        musicToggle.SetIsOnWithoutNotify(musicOn);
-        soundFXToggle.SetIsOnWithoutNotify(soundOn);
-
+        masterMute.SetStateWithoutNotification(masterOn);
+        musicMute.SetStateWithoutNotification(musicOn);
+        soundFXMute.SetStateWithoutNotification(soundOn);
     }
 
     /// <summary>
@@ -168,7 +157,7 @@ public class MainMenu : View
 
     public void ChangeMasterVol()
     {
-        if(!masterToggle.isOn)
+        if (!masterMute.IsMuted())
         {
             ChangeMixerGroupVol("MasterVol", masterSlider.value);
         }
@@ -177,7 +166,7 @@ public class MainMenu : View
 
     public void ChangeMusicVol()
     {
-        if(!musicToggle.isOn)
+        if (!musicMute.IsMuted())
         {
             ChangeMixerGroupVol("MusicVol", musicSlider.value);
         }
@@ -185,7 +174,7 @@ public class MainMenu : View
     }
     public void ChangeSFXVol()
     {
-        if (!soundFXToggle.isOn)
+        if (!soundFXMute.IsMuted())
         {
             ChangeMixerGroupVol("SFXVol", soundFXSlider.value);
         }
@@ -206,9 +195,9 @@ public class MainMenu : View
         }
     }
 
-     void MuteMixerGroup(string mixerGroupName)
+    void MuteMixerGroup(string mixerGroupName)
     {
-            ChangeMixerGroupVol(mixerGroupName, masterSlider.minValue);
+        ChangeMixerGroupVol(mixerGroupName, masterSlider.minValue);
     }
 
     public void ToggleMuteMasterGroup(bool isOn)
