@@ -22,7 +22,7 @@ public class MainMenu : View
     protected override void Start()
     {
         base.Start();
-        InitMixerVols();
+        SoundManager.InitMixerVols(audioMixer);
         InitSliders();
         InitToggles();
     }
@@ -93,25 +93,7 @@ public class MainMenu : View
     /// <summary>
     /// Initialise Mixer Values to their saved PlayerPrefs (or to 0dB if PlayerPrefs key/s don't exist)
     /// </summary>
-    void InitMixerVols()
-    {
-        if (!PlayerPrefs.HasKey("MasterVol"))
-        {
-            PlayerPrefs.SetFloat("MasterVol", Mathf.Log10(1.0f) * 20);
-        }
-        if (!PlayerPrefs.HasKey("MusicVol"))
-        {
-            PlayerPrefs.SetFloat("MusicVol", Mathf.Log10(1.0f) * 20);
-        }
-        if (!PlayerPrefs.HasKey("SFXVol"))
-        {
-            PlayerPrefs.SetFloat("SFXVol", Mathf.Log10(1.0f) * 20);
-        }
 
-        audioMixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
-        audioMixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
-        audioMixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
-    }
 
     /// <summary>
     /// Initialise Slider Values to their saved PlayerPrefs (or to 1f if PlayerPrefs key/s don't exist)

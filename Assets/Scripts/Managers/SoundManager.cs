@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
-    private AudioSource sound;
-
+    [SerializeField] private AudioSource soundFXSrc;
+    [SerializeField] private AudioSource musicSrc;
+    [SerializeField] AudioMixer mixer;
     // available Sounds
     /* menu */
     public AudioClip menuSelectSound;
@@ -32,31 +34,32 @@ public class SoundManager : MonoBehaviour
         else
         {
             _instance = this;
+            InitMixerVols(mixer);
         }
 
-        
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        sound = GetComponent<UnityEngine.AudioSource>();
-        sound.PlayOneShot(levelTheme_1);
+        //musicSrc = GetComponent<UnityEngine.AudioSource>();
+        musicSrc.PlayOneShot(levelTheme_1);
     }
 
     public void PlayMenuMoveSound()
     {
 
-        sound.PlayOneShot(menuMoveSound);
+        soundFXSrc.PlayOneShot(menuMoveSound);
     }
 
     public void PlayMenuSelectSound()
     {
-        sound.PlayOneShot(menuSelectSound);
+        soundFXSrc.PlayOneShot(menuSelectSound);
     }
     public void PlayTheme()
     {
-        sound.PlayOneShot(levelTheme_1);
+        musicSrc.PlayOneShot(levelTheme_1);
     }
 
 
@@ -64,37 +67,38 @@ public class SoundManager : MonoBehaviour
     public void PlayASound(AudioClip clip)
     {
         Debug.Log(clip);
-        sound.PlayOneShot(clip);
+        musicSrc.PlayOneShot(clip);
     }
 
 
     public void PlayOuchSound()
     {
 
-        sound.PlayOneShot(ouchSound);
+        soundFXSrc.PlayOneShot(ouchSound);
     }
 
 
     public void PlayCongratulationsSound()
     {
 
-        sound.PlayOneShot(congratulationSound);
+        soundFXSrc.PlayOneShot(congratulationSound);
     }
 
     public void PlayHitSound()
     {
 
-        sound.PlayOneShot(hitSound);
+        soundFXSrc.PlayOneShot(hitSound);
     }
 
     public void PlayCollectableSound()
     {
-       
-        sound.PlayOneShot(collectableSound);
+
+        soundFXSrc.PlayOneShot(collectableSound);
         // we can randomly play  congratulation sound
 
-        int  rnd =  Random.Range(0, 10);
-        if (rnd >= 7) {
+        int rnd = Random.Range(0, 10);
+        if (rnd >= 7)
+        {
 
             this.PlayCongratulationsSound();
 
@@ -104,7 +108,7 @@ public class SoundManager : MonoBehaviour
 
     }
 
-  
+
     private void Update()
     {
         /* TEST CODE */
@@ -113,11 +117,14 @@ public class SoundManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             PlayCollectableSound();
-        } else if (Input.GetKeyDown(KeyCode.X)){
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
 
             PlayHitSound();
         }
-        else if (Input.GetKeyDown(KeyCode.C)){
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
 
             PlayMenuMoveSound();
 
@@ -151,5 +158,23 @@ public class SoundManager : MonoBehaviour
         /**    **/
     }
 
+    public static void InitMixerVols(AudioMixer mixer)
+    {
+        if (!PlayerPrefs.HasKey("MasterVol"))
+        {
+            PlayerPrefs.SetFloat("MasterVol", Mathf.Log10(1.0f) * 20);
+        }
+        if (!PlayerPrefs.HasKey("MusicVol"))
+        {
+            PlayerPrefs.SetFloat("MusicVol", Mathf.Log10(1.0f) * 20);
+        }
+        if (!PlayerPrefs.HasKey("SFXVol"))
+        {
+            PlayerPrefs.SetFloat("SFXVol", Mathf.Log10(1.0f) * 20);
+        }
 
+        mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
+        mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
+        mixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
+    }
 }
