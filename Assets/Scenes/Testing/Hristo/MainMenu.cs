@@ -206,7 +206,7 @@ public class MainMenu : View
         }
     }
 
-    public void MuteMixerGroup(string mixerGroupName)
+     void MuteMixerGroup(string mixerGroupName)
     {
             ChangeMixerGroupVol(mixerGroupName, masterSlider.minValue);
     }
