@@ -97,8 +97,7 @@ public class CarController : MonoBehaviour
     private static void UpdateWheel(WheelCollider coll, Transform wheelMesh)
     {
         coll.GetWorldPose(out var position, out var quat);
-        Debug.LogWarning(position.x);
-        wheelMesh.position = position+new Vector3(10,0,0);
+        wheelMesh.position = position;
         wheelMesh.rotation = quat;
     }
 }
