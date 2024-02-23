@@ -27,8 +27,6 @@ public class InputController : MonoBehaviour, IInputController
         {
             oldVertial = vertical;
             odHorizontal = horizontal;
-            Debug.LogWarning(vertical);
-            Debug.LogWarning(horizontal);
             inputEvent(new InputData
             {
                 Vertical = vertical,
