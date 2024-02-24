@@ -22,31 +22,28 @@ public class CarController : MonoBehaviour
     private float slipAngle;
     private Rigidbody rb;
 
-    private IInputController inputController;
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        inputController = FindObjectOfType<InputController>();
-        inputController.SubscribeInputEvents(OperateGasAndSteering);
     }
 
     // Update is called once per frame
     void Update()
     {
         speed = rb.velocity.magnitude;
+        OperateGasAndSteering();
         ComputeAcceleration();
         ComputeBrake();
         ComputeSteering();
         UpdateWheelsPosition();
     }
 
-    private void OperateGasAndSteering(InputData data)
+    private void OperateGasAndSteering()
     {
       
-        accelerationSignal = data.Vertical;
-        steeringInput = data.Horizontal;
+        accelerationSignal = Input.GetAxis("Vertical");
+        steeringInput = Input.GetAxis("Horizontal");
 
         // Calculate slip angle
         slipAngle = Vector3.Angle(transform.forward, rb.velocity - transform.forward);
