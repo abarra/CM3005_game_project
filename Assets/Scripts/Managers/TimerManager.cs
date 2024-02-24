@@ -82,7 +82,9 @@ public class TimerManager : MonoBehaviour
     private void UpdateTimerDisplay()
     {
         // Update the UI to display the current time
-        timerText.text = currentTime.ToString("0");
+        var minutes = Mathf.FloorToInt(currentTime / 60);
+        var seconds = Mathf.FloorToInt(currentTime % 60);
+        timerText.text = $"{minutes:00}:{seconds:00}";
     }
 
     private void EndGame()
