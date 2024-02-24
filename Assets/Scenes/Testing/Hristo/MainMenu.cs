@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : View
 {
@@ -32,6 +30,7 @@ public class MainMenu : View
         base.Update();
 
     }
+    
     public void OnButtonPressLoadMenu(string menuName)
     {
         //set inactive for all other sub-menus
@@ -154,6 +153,7 @@ public class MainMenu : View
         }
         SaveSliderValue("musicSlider");
     }
+    
     public void ChangeSFXVol()
     {
         if (!soundFXMute.IsMuted())
@@ -224,5 +224,18 @@ public class MainMenu : View
             ChangeSFXVol();
         }
         PlayerPrefs.SetInt("soundFXToggleValue", toggleValue);
+    }
+
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene(1);
+        UIManager.Instance.DeActivateView("MainMenu");
+
+    }
+    
+    public void LoadLevelTwo()
+    {
+        SceneManager.LoadScene(2);
+        UIManager.Instance.DeActivateView("MainMenu");
     }
 }
