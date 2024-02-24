@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     {
         _state = GameState.running;
         TimerManager.Instance.StartTimer();
+        // Start level music
+        SoundManager.Instance.PlayTheme();
     }
 
     public void PauseGame()

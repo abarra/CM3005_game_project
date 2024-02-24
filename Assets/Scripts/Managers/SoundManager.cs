@@ -6,9 +6,21 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
+
+    public static SoundManager Instance
+    {
+        get => _instance;
+    }
+
     [SerializeField] private AudioSource soundFXSrc;
     [SerializeField] private AudioSource musicSrc;
-    [SerializeField] AudioMixer mixer;
+
+    [SerializeField] private AudioMixer mixer;
+
+    private const string MasterVolume = "MasterVol";
+    private const string MusicVolume = "MusicVol";
+    private const string SfxVolume = "SFXVol";
+
     // available Sounds
     /* menu */
     public AudioClip menuSelectSound;
@@ -34,22 +46,18 @@ public class SoundManager : MonoBehaviour
         else
         {
             _instance = this;
-            InitMixerVols(mixer);
+            DontDestroyOnLoad(this.gameObject);
         }
-
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //musicSrc = GetComponent<UnityEngine.AudioSource>();
-        musicSrc.PlayOneShot(levelTheme_1);
+        InitMixerVols();
     }
 
     public void PlayMenuMoveSound()
     {
-
         soundFXSrc.PlayOneShot(menuMoveSound);
     }
 
@@ -57,6 +65,7 @@ public class SoundManager : MonoBehaviour
     {
         soundFXSrc.PlayOneShot(menuSelectSound);
     }
+
     public void PlayTheme()
     {
         musicSrc.PlayOneShot(levelTheme_1);
@@ -73,39 +82,30 @@ public class SoundManager : MonoBehaviour
 
     public void PlayOuchSound()
     {
-
         soundFXSrc.PlayOneShot(ouchSound);
     }
 
 
     public void PlayCongratulationsSound()
     {
-
         soundFXSrc.PlayOneShot(congratulationSound);
     }
 
     public void PlayHitSound()
     {
-
         soundFXSrc.PlayOneShot(hitSound);
     }
 
     public void PlayCollectableSound()
     {
-
         soundFXSrc.PlayOneShot(collectableSound);
         // we can randomly play  congratulation sound
 
         int rnd = Random.Range(0, 10);
         if (rnd >= 7)
         {
-
             this.PlayCongratulationsSound();
-
-
         }
-
-
     }
 
 
@@ -120,32 +120,23 @@ public class SoundManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-
             PlayHitSound();
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-
             PlayMenuMoveSound();
-
         }
         else if (Input.GetKeyDown(KeyCode.V))
         {
-
             PlayMenuSelectSound();
-
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
-
             PlayOuchSound();
-
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-
             PlayCongratulationsSound();
-
         }
         /*
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -158,23 +149,59 @@ public class SoundManager : MonoBehaviour
         /**    **/
     }
 
-    public static void InitMixerVols(AudioMixer mixer)
+    public void InitMixerVols()
     {
-        if (!PlayerPrefs.HasKey("MasterVol"))
-        {
-            PlayerPrefs.SetFloat("MasterVol", Mathf.Log10(1.0f) * 20);
-        }
-        if (!PlayerPrefs.HasKey("MusicVol"))
-        {
-            PlayerPrefs.SetFloat("MusicVol", Mathf.Log10(1.0f) * 20);
-        }
-        if (!PlayerPrefs.HasKey("SFXVol"))
-        {
-            PlayerPrefs.SetFloat("SFXVol", Mathf.Log10(1.0f) * 20);
-        }
-
-        mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
-        mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
-        mixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
+        PlayerPrefsManager.Instance.InitializeWithDefaults();
+        
+        Debug.Log(
+            $"Init mixer with values. Master: {PlayerPrefsManager.SoundMasterVolume}, Music: {PlayerPrefsManager.SoundMusicVolume}, SFX: {PlayerPrefsManager.SoundSfxVolume}");
+        mixer.SetFloat(MasterVolume, PlayerPrefsManager.SoundMasterVolume);
+        mixer.SetFloat(MusicVolume, PlayerPrefsManager.SoundMusicVolume);
+        mixer.SetFloat(SfxVolume, PlayerPrefsManager.SoundSfxVolume);
     }
+
+    // Methods to control volume. Used in PlayerPrefsManager
+
+    #region Volume updates
+
+    public void ChangeMasterVolume(float newVolume)
+    {
+        if (!PlayerPrefsManager.SoundMasterMuted)
+        {
+            mixer.SetFloat(MasterVolume, newVolume);
+        }
+    }
+
+    public void MuteMaster()
+    {
+        mixer.SetFloat(MasterVolume, -80.0f);
+    }
+
+    public void ChangeMusicVolume(float newVolume)
+    {
+        if (!PlayerPrefsManager.SoundMusicMuted)
+        {
+            mixer.SetFloat(MusicVolume, newVolume);
+        }
+    }
+
+    public void MuteMusic()
+    {
+        mixer.SetFloat(MusicVolume, -80.0f);
+    }
+
+    public void ChangeSfxVolume(float newVolume)
+    {
+        if (!PlayerPrefsManager.SoundSfxMuted)
+        {
+            mixer.SetFloat(SfxVolume, newVolume);
+        }
+    }
+
+    public void MuteSfx()
+    {
+        mixer.SetFloat(SfxVolume, -80.0f);
+    }
+
+    #endregion Volume updates
 }
