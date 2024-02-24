@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuView : View
@@ -21,6 +22,7 @@ public class MainMenuView : View
         InitMuteButtons();
     }
 
+    #region Common listeners
     public void OnButtonPressLoadMenu(string menuName)
     {
         Debug.Log($"Loading {menuName} menu");
@@ -40,8 +42,22 @@ public class MainMenuView : View
         }
     }
 
-    #region Init Functions
-
+    public void PlayButtonPressSoundEffect()
+    {
+        if (!onClickSound.isPlaying)
+        {
+            onClickSound.Play();
+        }
+    }
+    #endregion
+    
+    public void StartGame()
+    {
+        GameManager.Instance.StartGame();
+        CloseView();
+    }
+    
+    #region Options
     public void ResetToDefaults()
     {
         PlayerPrefsManager.Instance.ResetToDefault();
@@ -53,7 +69,58 @@ public class MainMenuView : View
     {
         PlayerPrefsManager.Instance.Save();
     }
+    
+    #region Sliders
+    public void ChangeMasterVol()
+    {
+        PlayerPrefsManager.SoundMasterSlider = masterSlider.value;
+    }
 
+    public void ChangeMusicVol()
+    {
+        PlayerPrefsManager.SoundMusicSlider = musicSlider.value;
+    }
+
+    public void ChangeSFXVol()
+    {
+        PlayerPrefsManager.SoundSfxSlider = soundFXSlider.value;
+    }
+    #endregion
+
+    #region Mute buttons
+    public void MuteMasterGroup(bool isMuted)
+    {
+        PlayerPrefsManager.SoundMasterMuted = isMuted;
+    }
+
+    public void MuteMusicGroup(bool isMuted)
+    {
+        PlayerPrefsManager.SoundMusicMuted = isMuted;
+    }
+
+    public void MuteSfxGroup(bool isMuted)
+    {
+        PlayerPrefsManager.SoundSfxMuted = isMuted;
+    }
+    #endregion
+    
+    #endregion
+    
+    #region Levels
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene(1);
+        CloseView();
+    }
+    
+    public void LoadLevelTwo()
+    {
+        SceneManager.LoadScene(2);
+        CloseView();
+    }
+    #endregion
+
+    #region Init Functions
     /// <summary>
     /// Initialise Mute Toggle Values to their saved PlayerPrefs (or to false if PlayerPrefs key/s don't exist)
     /// </summary>
@@ -80,48 +147,4 @@ public class MainMenuView : View
     }
 
     #endregion
-
-    public void ChangeMasterVol()
-    {
-        PlayerPrefsManager.SoundMasterSlider = masterSlider.value;
-    }
-
-    public void ChangeMusicVol()
-    {
-        PlayerPrefsManager.SoundMusicSlider = musicSlider.value;
-    }
-
-    public void ChangeSFXVol()
-    {
-        PlayerPrefsManager.SoundSfxSlider = soundFXSlider.value;
-    }
-
-    public void StartGame()
-    {
-        GameManager.Instance.StartGame();
-        CloseView();
-    }
-
-    public void PlayButtonPressSoundEffect()
-    {
-        if (!onClickSound.isPlaying)
-        {
-            onClickSound.Play();
-        }
-    }
-
-    public void MuteMasterGroup(bool isMuted)
-    {
-        PlayerPrefsManager.SoundMasterMuted = isMuted;
-    }
-
-    public void MuteMusicGroup(bool isMuted)
-    {
-        PlayerPrefsManager.SoundMusicMuted = isMuted;
-    }
-
-    public void MuteSfxGroup(bool isMuted)
-    {
-        PlayerPrefsManager.SoundSfxMuted = isMuted;
-    }
 }
