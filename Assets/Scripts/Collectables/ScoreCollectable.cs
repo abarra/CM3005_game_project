@@ -11,6 +11,6 @@ public class ScoreCollectable : Collectable
     }
     protected override void ApplyEffect(Collider Col)
     {
-        GameManager.Instance.UpdateScore(toScore);
+        ScoreManager.Instance.UpdateScore(toScore);
     }
 }

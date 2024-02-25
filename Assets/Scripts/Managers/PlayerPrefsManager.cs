@@ -187,6 +187,9 @@ public class PlayerPrefsManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(SoundSfxMutedKey, 0);
         }
+        
+        // Save to a file manually in case
+        PlayerPrefs.Save();
 
         // Set as initialized
         _initialized = true;

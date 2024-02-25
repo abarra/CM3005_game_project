@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
 
     public static event Action OnGameOver;
 
-    public int score {get; private set;}
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -63,15 +61,15 @@ public class GameManager : MonoBehaviour
         TimerManager.Instance.StartTimer();
         // Start level music
         SoundManager.Instance.PlayTheme();
-        score = 0;
-
+        ScoreManager.Instance.ResetScore();
     }
 
     public void PauseGame()
     {
         _state = GameState.pause;
         TimerManager.Instance.PauseTimer();
-
+        // Stop music
+        SoundManager.Instance.StopMusic();
     }
 
     private void Update()
@@ -85,7 +83,6 @@ public class GameManager : MonoBehaviour
         {
             // Handle game over state, show game over screen, restart, etc.
             UIManager.Instance.ActivateView("MainMenuView");
-
         }
     }
 
@@ -97,12 +94,5 @@ public class GameManager : MonoBehaviour
 
         //TODO show game over overlay
         Debug.Log("GameOver");
-
-    }
-
-    public void UpdateScore(int value)
-    {
-        score += value;
-        GetComponentsInChildren<TextMeshProUGUI>().Where(n => n.gameObject.name == "ScoreText").ToArray()[0].text = "Score: " + score.ToString();
     }
 }

@@ -56,6 +56,14 @@ public class SoundManager : MonoBehaviour
         InitMixerVols();
     }
 
+    /// <summary>
+    /// Stop music in music mixer
+    /// </summary>
+    public void StopMusic()
+    {
+        musicSrc.Stop();
+    }
+
     public void PlayMenuMoveSound()
     {
         soundFXSrc.PlayOneShot(menuMoveSound);
