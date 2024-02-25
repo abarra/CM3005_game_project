@@ -1,3 +1,4 @@
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,16 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     
     public int Score {get; private set;}
+
+    public string FormattedScore
+    {
+        get
+        {
+            var nfi = new CultureInfo( "en-US", false ).NumberFormat;
+            nfi.NumberDecimalDigits = 0;
+            return Score.ToString("N", nfi);
+        }
+    }
     
     private void Awake()
     {
@@ -38,7 +49,7 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateText()
     {
-        scoreText.text = Score.ToString();
+        scoreText.text = FormattedScore;
     }
 
 }
