@@ -37,4 +37,22 @@ public class MenuView : View
         }
     }
     #endregion
+    
+    /// <summary>
+    /// Start new game
+    /// </summary>
+    public void StartGame()
+    {
+        GameManager.Instance.StartGame();
+        CloseView();
+    }
+    
+    /// <summary>
+    /// Restarts level
+    /// </summary>
+    public void RestartLevel()
+    {
+        GameManager.Instance.RestartLevel();
+        CloseView();
+    }
 }
