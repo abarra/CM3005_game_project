@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public int emotionalValue = 0;
-    public int timeValue = 0;
 
     protected EmotionController _ec;
     protected SoundManager _sm;
@@ -35,32 +33,13 @@ public class Collectable : MonoBehaviour
         //If player collected collactable, then destroy object 
         if (Col.CompareTag("Player"))
         {
-            // the collectable is collected 
-            // it might have emotional impact
-            Debug.Log("emotional value");
-            Debug.Log(emotionalValue);
-
-
-            if (emotionalValue > 0)
-            {
-                _ec.IncreaseSatisfuction(emotionalValue);
-            }
-            else if (emotionalValue < 0)
-            {
-                _ec.DecreaseSatisfuction(emotionalValue);
-            }
-
-            if (timeValue > 0)
-            {
-                TimerManager.Instance.AddTime(timeValue);
-            }
-
+            ApplyEffect(Col);
             _sm.PlayCollectableSound();
             Destroy(gameObject);
         }
     }
 
-    protected virtual void ApplyEffect()
+    protected virtual void ApplyEffect(Collider Col)
     {
 
     }
