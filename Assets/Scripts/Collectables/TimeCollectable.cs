@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeCollectable : Collectable
 {
-    public int timeValue;
+    [SerializeField] int timeValue;
 
     protected override void ApplyEffect(Collider Col)
     {

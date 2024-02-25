@@ -5,13 +5,11 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
 
-    protected EmotionController _ec;
     protected SoundManager _sm;
 
     private float rotateSpeed = 50f;
-    void Start()
+    protected virtual void Start()
     {
-        _ec = GameObject.Find("EmotionManager").GetComponent<EmotionController>();
         _sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 

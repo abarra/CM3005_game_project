@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,15 +9,17 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         pause,
-        running, 
+        running,
         over,
     }
 
     private static GameManager _instance;
     private GameState _state;
     public static GameManager Instance { get { return _instance; } }
-    
+
     public static event Action OnGameOver;
+
+    public int score {get; private set;}
 
     private void Awake()
     {
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
         TimerManager.Instance.StartTimer();
         // Start level music
         SoundManager.Instance.PlayTheme();
+        score = 0;
+
     }
 
     public void PauseGame()
@@ -92,5 +98,11 @@ public class GameManager : MonoBehaviour
         //TODO show game over overlay
         Debug.Log("GameOver");
 
+    }
+
+    public void UpdateScore(int value)
+    {
+        score += value;
+        GetComponentsInChildren<TextMeshProUGUI>().Where(n => n.gameObject.name == "ScoreText").ToArray()[0].text = "Score: " + score.ToString();
     }
 }

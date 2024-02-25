@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EmotionCollectable : Collectable
 {
-    public int emotionalValue = 0;
+    [SerializeField] int emotionalValue = 0;
+    protected EmotionController _ec;
+
+    protected override void Start()
+    {
+        base.Start();
+        _ec = GameObject.Find("EmotionManager").GetComponent<EmotionController>();
+    }
     protected override void ApplyEffect(Collider Col)
     {
-        // the collectable is collected 
-        // it might have emotional impact
-        Debug.Log("emotional value");
-        Debug.Log(emotionalValue);
-
-
         if (emotionalValue > 0)
         {
             _ec.IncreaseSatisfuction(emotionalValue);
