@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3991270823946546761}
+      - m_Target: {fileID: 8885939935402989944}
         m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
@@ -779,7 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3573988122310690927}
-  - component: {fileID: 3991270823946546761}
+  - component: {fileID: 8885939935402989944}
   m_Layer: 5
   m_Name: FooterOverlay
   m_TagString: Untagged
@@ -808,7 +808,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3991270823946546761
+--- !u!114 &8885939935402989944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7995737120467376701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f4d81469897e442a7691368ef80634, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f7cd28c64824913bdfbf1cc67ef3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9155515169860599480

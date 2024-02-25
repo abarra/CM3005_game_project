@@ -10,6 +10,7 @@ public class Collectable : MonoBehaviour
     protected EmotionController _ec;
     protected SoundManager _sm;
 
+    private float rotateSpeed = 50f;
     void Start()
     {
         _ec = GameObject.Find("EmotionManager").GetComponent<EmotionController>();
@@ -19,14 +20,14 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RotateSelf();
     }
 
     //Called when object is destroyed 
     void OnDestroy()
     {
-       
-      
+
+
     }
 
     void OnTriggerEnter(Collider Col)
@@ -40,13 +41,16 @@ public class Collectable : MonoBehaviour
             Debug.Log(emotionalValue);
 
 
-            if (emotionalValue > 0) {
+            if (emotionalValue > 0)
+            {
                 _ec.IncreaseSatisfuction(emotionalValue);
-            } else if (emotionalValue < 0) {
+            }
+            else if (emotionalValue < 0)
+            {
                 _ec.DecreaseSatisfuction(emotionalValue);
             }
 
-            if(timeValue > 0)
+            if (timeValue > 0)
             {
                 TimerManager.Instance.AddTime(timeValue);
             }
@@ -54,5 +58,15 @@ public class Collectable : MonoBehaviour
             _sm.PlayCollectableSound();
             Destroy(gameObject);
         }
+    }
+
+    protected virtual void ApplyEffect()
+    {
+
+    }
+    void RotateSelf()
+    {
+        transform.Rotate(0,0, rotateSpeed * Time.deltaTime);
+
     }
 }
