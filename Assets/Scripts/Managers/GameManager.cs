@@ -72,6 +72,22 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.StopMusic();
     }
 
+    public void ResumeGame()
+    {
+        _state = GameState.running;
+        TimerManager.Instance.StartTimer();
+        SoundManager.Instance.PlayTheme();
+    }
+
+    /// <summary>
+    /// Restarts level from scratch
+    /// </summary>
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartGame();
+    }
+
     private void Update()
     {
         // Check for game over condition
@@ -81,8 +97,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Handle game over state, show game over screen, restart, etc.
-            UIManager.Instance.ActivateView("MainMenuView");
+            // Handle game over state, show game over screen, restart, etc
         }
     }
 
@@ -90,9 +105,13 @@ public class GameManager : MonoBehaviour
     {
         _state = GameState.over;
         
+        // Stop music
+        SoundManager.Instance.StopMusic();
+        
+        // Run listeners
         OnGameOver?.Invoke();
 
-        //TODO show game over overlay
-        Debug.Log("GameOver");
+        // Show Game Over screen
+        UIManager.Instance.ActivateView("GameOverView");
     }
 }
