@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -17,7 +19,7 @@ public class CarController : MonoBehaviour
     public float motorTorque;
     public float brakeTorque;
     public AnimationCurve steeringCurve;
-    
+
     public float speed;
     private float slipAngle;
     private Rigidbody rb;
@@ -41,7 +43,7 @@ public class CarController : MonoBehaviour
 
     private void OperateGasAndSteering()
     {
-      
+
         accelerationSignal = Input.GetAxis("Vertical");
         steeringInput = Input.GetAxis("Horizontal");
 
@@ -96,5 +98,26 @@ public class CarController : MonoBehaviour
         coll.GetWorldPose(out var position, out var quat);
         wheelMesh.position = position;
         wheelMesh.rotation = quat;
+    }
+
+    //On collecting speed collectable
+    public void AddSpeedForTime(float value)
+    {
+        Debug.Log($"Speed:{speed + value}");
+        float[] args = new float[2] {value, 2f};
+        StartCoroutine("NewMotorTorqueForTime",args);
+    }
+    IEnumerator NewMotorTorqueForTime(float[] args)
+    {
+        float value = args[0];
+        float duration = args[1];
+        float oldMotorTorque = motorTorque;
+        //Debug.Log($"Motor Torque Before: {motorTorque}");
+        motorTorque += value;
+        //Debug.Log($"Motor Torque During: {motorTorque}");
+        yield return new WaitForSeconds(duration);
+        motorTorque = oldMotorTorque;
+        //Debug.Log($"Motor Torque After: {motorTorque}");
+
     }
 }
