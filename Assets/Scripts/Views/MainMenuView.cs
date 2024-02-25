@@ -6,9 +6,4 @@ using UnityEngine.UI;
 
 public class MainMenuView : MenuView
 {
-    public void StartGame()
-    {
-        GameManager.Instance.StartGame();
-        CloseView();
-    }
 }

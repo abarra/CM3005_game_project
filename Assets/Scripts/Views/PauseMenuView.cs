@@ -8,13 +8,8 @@ public class PauseMenuView : MenuView
 {
     public void ResumeGame()
     {
-        GameManager.Instance.StartGame();
+        GameManager.Instance.ResumeGame();
         CloseView();
-    }
-
-    public void RestartGame()
-    {
-        
     }
 
     /// <summary>
