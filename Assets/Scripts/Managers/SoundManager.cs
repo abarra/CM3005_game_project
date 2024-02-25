@@ -68,6 +68,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlayTheme()
     {
+        if (musicSrc.isPlaying)
+        {
+            musicSrc.Stop();
+        }
         musicSrc.PlayOneShot(levelTheme_1);
     }
 
