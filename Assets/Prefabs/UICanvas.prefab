@@ -638,6 +638,7 @@ MonoBehaviour:
   viewList:
   - {fileID: 4111983612973455676, guid: 0f560cc4ade2ac946ab4738c78420531, type: 3}
   - {fileID: 5852231877095527113, guid: e0c570cf6a2904159a20d2462c9aa880, type: 3}
+  - {fileID: 1505444386921586606, guid: 1712b1139042f47e3af3696404a88a24, type: 3}
 --- !u!1 &7995737120467376701
 GameObject:
   m_ObjectHideFlags: 0
