@@ -10,7 +10,8 @@ public class GameOverView : MenuView
 {
     public TextMeshProUGUI scoreText;
 
-    protected void OnEnable()
+
+    public override void Activate()
     {
         scoreText.text = ScoreManager.Instance.FormattedScore;
     }
