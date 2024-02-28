@@ -85,6 +85,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedCollectable
       objectReference: {fileID: 0}
+    - target: {fileID: 6649605382400571956, guid: 90ac219f17315ba459f0f746a0ef0b6f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc1f6b93980b5f34da7f1d2080a7f715,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 156187038711499661, guid: 90ac219f17315ba459f0f746a0ef0b6f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 90ac219f17315ba459f0f746a0ef0b6f, type: 3}
