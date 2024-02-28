@@ -30,7 +30,9 @@ public class SoundManager : MonoBehaviour
     /* level  */
     public AudioClip levelTheme_1;
     public AudioClip hitSound;
-    public AudioClip collectableSound;
+    
+    /* collectables */
+    public List<AudioClip> collectableSounds;
 
 
     /* emotion  */
@@ -108,9 +110,9 @@ public class SoundManager : MonoBehaviour
         soundFXSrc.PlayOneShot(hitSound);
     }
 
-    public void PlayCollectableSound()
+    public void PlayCollectableSound(int index)
     {
-        soundFXSrc.PlayOneShot(collectableSound);
+        soundFXSrc.PlayOneShot(collectableSounds[index]);
         // we can randomly play  congratulation sound
 
         int rnd = Random.Range(0, 10);
@@ -128,7 +130,7 @@ public class SoundManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            PlayCollectableSound();
+            PlayCollectableSound(0);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {

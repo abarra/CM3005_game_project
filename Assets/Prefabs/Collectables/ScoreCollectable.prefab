@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb766b4e69cd73409f8a28d5b44b361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destructionParticles: {fileID: 2071110603106096027, guid: 40cc17fdde7b5744d81a3cfdecce6e4a,
+    type: 3}
   toScore: 100
 --- !u!1001 &2831366752490602259
 PrefabInstance:

@@ -6,10 +6,10 @@ public class EmotionCollectable : Collectable
 {
     [SerializeField] int emotionalValue = 0;
     protected EmotionController _ec;
-
     protected override void Start()
     {
         base.Start();
+        collSoundIndex = 3;
         _ec = GameObject.Find("EmotionManager").GetComponent<EmotionController>();
     }
     protected override void ApplyEffect(Collider Col)

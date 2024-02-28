@@ -8,6 +8,7 @@ public class ScoreCollectable : Collectable
     protected override void Start()
     {
         base.Start();
+        collSoundIndex = 2;
     }
     protected override void ApplyEffect(Collider Col)
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-
+    [SerializeField] ParticleSystem destructionParticles;
     protected SoundManager _sm;
-
+    protected int collSoundIndex = 0; 
     private float rotateSpeed = 50f;
     protected virtual void Start()
     {
@@ -32,7 +32,8 @@ public class Collectable : MonoBehaviour
         if (Col.CompareTag("Player"))
         {
             ApplyEffect(Col);
-            _sm.PlayCollectableSound();
+            _sm.PlayCollectableSound(collSoundIndex);
+            Instantiate(destructionParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

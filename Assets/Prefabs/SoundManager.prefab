@@ -52,7 +52,11 @@ MonoBehaviour:
   menuMoveSound: {fileID: 8300000, guid: 76900dfe0d15dc34fb621e6ab0cf8466, type: 3}
   levelTheme_1: {fileID: 8300000, guid: ea7002d1be0a5da47b6ec6bb9b8f6f4c, type: 3}
   hitSound: {fileID: 8300000, guid: a5ab3ba2c1527d34e8a2c12620d60d3a, type: 3}
-  collectableSound: {fileID: 8300000, guid: 616cf7f5cffb52e4caa0df9070ee4067, type: 3}
+  collectableSounds:
+  - {fileID: 8300000, guid: 218945dfb3310a04e91ec3aa1426ace4, type: 3}
+  - {fileID: 8300000, guid: eb060765244608444af0a7a068fe4f04, type: 3}
+  - {fileID: 8300000, guid: 616cf7f5cffb52e4caa0df9070ee4067, type: 3}
+  - {fileID: 8300000, guid: f082d4b9c6f8f234eb989e9fe30f2360, type: 3}
   ouchSound: {fileID: 8300000, guid: 1b6269b3ea023754eba2452f564971b2, type: 3}
   congratulationSound: {fileID: 8300000, guid: fe80c8bb32dd11d43a1c3a890d7268ba, type: 3}
 --- !u!82 &7014999306980857688

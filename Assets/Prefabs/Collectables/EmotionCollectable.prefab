@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5123e89ea50fe26499bac561e3b59a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destructionParticles: {fileID: 5586046715060915830, guid: 587c676320d784c489c816ddb29e7f19,
+    type: 3}
   emotionalValue: 10
 --- !u!1001 &8772745908905925132
 PrefabInstance:
@@ -109,6 +111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EmotionCollectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916652454045454371, guid: 90ac219f17315ba459f0f746a0ef0b6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649605382400571956, guid: 90ac219f17315ba459f0f746a0ef0b6f,
         type: 3}
