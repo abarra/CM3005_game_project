@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] List<ParticleSystem> smokeParticles;
     private const float SlipAngleMax = 120f;
     private const float FrontBrakeMultiplier = 0.7f;
     private const float RearBrakeMultiplier = 0.3f;
@@ -53,6 +55,7 @@ public class CarController : MonoBehaviour
         {
             if (accelerationSignal < 0f)
             {
+                PlaySmokeParticles();
                 brakeSignal = Mathf.Abs(accelerationSignal);
                 accelerationSignal = 0f;
             }
@@ -81,6 +84,21 @@ public class CarController : MonoBehaviour
     {
         // Calculate steering angle
         var steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
+        if (Math.Abs(steeringAngle) > 35f)
+        {
+            if (steeringAngle < 0)
+            {
+                //Play Right Tires Smoke
+                PlaySmokeParticles(2);
+                PlaySmokeParticles(3);
+            }
+            else
+            {
+                //Play Left Tires Smoke
+                PlaySmokeParticles(0);
+                PlaySmokeParticles(1);
+            }
+        }
         colliders.FLWheel.steerAngle = steeringAngle;
         colliders.FRWheel.steerAngle = steeringAngle;
     }
@@ -104,8 +122,8 @@ public class CarController : MonoBehaviour
     public void AddSpeedForTime(float value)
     {
         Debug.Log($"Speed:{speed + value}");
-        float[] args = new float[2] {value, 2f};
-        StartCoroutine("NewMotorTorqueForTime",args);
+        float[] args = new float[2] { value, 2f };
+        StartCoroutine("NewMotorTorqueForTime", args);
     }
     IEnumerator NewMotorTorqueForTime(float[] args)
     {
@@ -118,6 +136,22 @@ public class CarController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         motorTorque = oldMotorTorque;
         //Debug.Log($"Motor Torque After: {motorTorque}");
+    }
+    /// <summary>
+    /// Emits 1 count of smoke Particles for each tire.
+    /// </summary>
+    void PlaySmokeParticles()
+    {
+        smokeParticles.ForEach(n => n.Emit(1));
+    }
 
+    /// <summary>
+    /// Emits 1 count of smoke Particles for each tire.
+    /// </summary>
+    /// <param name="index">The index to emit from: 0 - LF, 1- LR, 2 - RF, 3 - RR </param>
+    /// <param name="count">The count of emmisions, default = 1</param>
+    void PlaySmokeParticles(int index, int count = 1)
+    {
+        smokeParticles[index].Emit(count);
     }
 }
