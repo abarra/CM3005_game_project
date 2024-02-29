@@ -2,10 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static Enums;
+using static UnityEditorInternal.VersionControl.ListControl;
 public class CarController : MonoBehaviour
 {
+    public CarStates state = CarStates.neutral;
+    Vector3 fwdValue;
+    Vector3 lastFwdValue;
+
     [SerializeField] List<ParticleSystem> smokeParticles;
+
+
     private const float SlipAngleMax = 120f;
     private const float FrontBrakeMultiplier = 0.7f;
     private const float RearBrakeMultiplier = 0.3f;
@@ -29,18 +36,24 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fwdValue = transform.forward;
+        lastFwdValue = fwdValue;
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        fwdValue = transform.forward;
         speed = rb.velocity.magnitude;
         OperateGasAndSteering();
         ComputeAcceleration();
         ComputeBrake();
         ComputeSteering();
         UpdateWheelsPosition();
+        SetCarState();
+        SetPlaySmoke();
+        lastFwdValue = fwdValue;
     }
 
     private void OperateGasAndSteering()
@@ -55,7 +68,6 @@ public class CarController : MonoBehaviour
         {
             if (accelerationSignal < 0f)
             {
-                PlaySmokeParticles();
                 brakeSignal = Mathf.Abs(accelerationSignal);
                 accelerationSignal = 0f;
             }
@@ -84,21 +96,7 @@ public class CarController : MonoBehaviour
     {
         // Calculate steering angle
         var steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
-        if (Math.Abs(steeringAngle) > 35f)
-        {
-            if (steeringAngle < 0)
-            {
-                //Play Right Tires Smoke
-                PlaySmokeParticles(2);
-                PlaySmokeParticles(3);
-            }
-            else
-            {
-                //Play Left Tires Smoke
-                PlaySmokeParticles(0);
-                PlaySmokeParticles(1);
-            }
-        }
+
         colliders.FLWheel.steerAngle = steeringAngle;
         colliders.FRWheel.steerAngle = steeringAngle;
     }
@@ -137,6 +135,36 @@ public class CarController : MonoBehaviour
         motorTorque = oldMotorTorque;
         //Debug.Log($"Motor Torque After: {motorTorque}");
     }
+
+    void SetPlaySmoke()
+    {
+        switch (state)
+        {
+            case CarStates.brake:
+                PlaySmokeParticles();
+                break;
+            case CarStates.harshTurn:
+                var steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
+                if (Math.Abs(steeringAngle) > 35f)
+                {
+                    if (steeringAngle < 0)
+                    {
+                        //Play Right Tires Smoke
+                        PlaySmokeParticles(2);
+                        PlaySmokeParticles(3);
+                    }
+                    else
+                    {
+                        //Play Left Tires Smoke
+                        PlaySmokeParticles(0);
+                        PlaySmokeParticles(1);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
     /// <summary>
     /// Emits 1 count of smoke Particles for each tire.
     /// </summary>
@@ -153,5 +181,68 @@ public class CarController : MonoBehaviour
     void PlaySmokeParticles(int index, int count = 1)
     {
         smokeParticles[index].Emit(count);
+    }
+
+    private void SetCarState()
+    {
+        CarStates lastState = state;
+
+        float fwdDir = Input.GetAxisRaw("Vertical");
+        //if pressing forward
+        if (fwdDir > 0f)
+        {
+            SetCarStateGearDrive();
+        }
+        //if pressing back
+        else if (fwdDir < 0f)
+        {
+
+            if (fwdValue.z >= lastFwdValue.z)
+            {
+                state = CarStates.brake;
+            }
+            else
+            {
+                state = CarStates.reverse;
+            }
+        }
+
+        //if neutral
+        else
+        {
+            if (state == CarStates.gear1 || state == CarStates.brake || state == CarStates.reverse)
+            {
+                state = CarStates.neutral;
+            }
+        }
+
+        var steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
+        //if steering too high
+        if (Math.Abs(steeringAngle) > 35f)
+        {
+            state = CarStates.harshTurn;
+        }
+        if (lastState != state)
+        {
+            Debug.Log($"State Shift: {state}");
+        }
+    }
+    //call only when pressing forward
+    private void SetCarStateGearDrive()
+    {
+        if(lastFwdValue.z >= fwdValue.z)
+        {
+            state = CarStates.gear1;
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (speed > 5f * i)
+                {
+                    state = (CarStates)i;
+                }
+            }
+        }
     }
 }
