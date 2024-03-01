@@ -6,6 +6,17 @@ using UnityEngine.UI;
 
 public class PauseMenuView : MenuView
 {
+    protected override void Update()
+    {
+        base.Update();
+        // Resume game on ESC
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.ResumeGame();
+            CloseView();
+        }
+    }
+
     public void ResumeGame()
     {
         GameManager.Instance.ResumeGame();

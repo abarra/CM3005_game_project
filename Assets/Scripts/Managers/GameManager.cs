@@ -71,16 +71,18 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         _state = GameState.pause;
+        Time.timeScale = 0;
         TimerManager.Instance.PauseTimer();
         // Stop music
-        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.PauseMusicAndSfx();
     }
 
     public void ResumeGame()
     {
         _state = GameState.running;
+        Time.timeScale = 1;
         TimerManager.Instance.StartTimer();
-        SoundManager.Instance.PlayTheme();
+        SoundManager.Instance.UnPauseMusicAndSfx();
     }
 
     /// <summary>
@@ -94,6 +96,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // Pause menu check
+        if (_state == GameState.running && Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+            UIManager.Instance.ActivateView("PauseMenuView");
+        }
+        
         // Check for game over condition
         if (_state != GameState.over)
         {
@@ -110,7 +119,7 @@ public class GameManager : MonoBehaviour
         _state = GameState.over;
         
         // Stop music
-        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.StopMusicAndSfx();
         
         // Run listeners
         OnGameOver?.Invoke();

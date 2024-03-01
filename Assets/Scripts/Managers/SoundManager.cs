@@ -18,16 +18,15 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<AudioSource> carSoundFXSrcs;
     [SerializeField] private AudioMixer mixer;
 
+    // Constants to prevent magic strings
     private const string MasterVolume = "MasterVol";
     private const string MusicVolume = "MusicVol";
     private const string SfxVolume = "SFXVol";
-
 
     // available Sounds
     /* menu */
     public AudioClip menuSelectSound;
     public AudioClip menuMoveSound;
-
 
     /* level  */
     public AudioClip levelTheme_1;
@@ -59,13 +58,94 @@ public class SoundManager : MonoBehaviour
         InitMixerVols();
     }
 
+    #region Pause and stop audio controls
     /// <summary>
-    /// Stop music in music mixer
+    /// Stop music
     /// </summary>
     public void StopMusic()
     {
         musicSrc.Stop();
     }
+    
+    /// <summary>
+    /// Pause music
+    /// </summary>
+    public void PauseMusic()
+    {
+        musicSrc.Pause();
+    }
+    
+    /// <summary>
+    /// Un pause music
+    /// </summary>
+    public void UnPauseMusic()
+    {
+        musicSrc.UnPause();
+    }
+    
+    /// <summary>
+    /// Stop effects
+    /// </summary>
+    public void StopSfx()
+    {
+        soundFXSrc.Stop();
+        foreach (var carSoundFXSrc in carSoundFXSrcs)
+        {
+            carSoundFXSrc.Stop();
+        }
+    }
+    
+    /// <summary>
+    /// Un pause effects
+    /// </summary>
+    public void PauseSfx()
+    {
+        soundFXSrc.Pause();
+        foreach (var carSoundFXSrc in carSoundFXSrcs)
+        {
+            carSoundFXSrc.Pause();
+        }
+    }
+    
+    /// <summary>
+    /// Un pause music
+    /// </summary>
+    public void UnPauseSfx()
+    {
+        soundFXSrc.UnPause();
+        foreach (var carSoundFXSrc in carSoundFXSrcs)
+        {
+            carSoundFXSrc.UnPause();
+        }
+    }
+    
+    /// <summary>
+    /// Stop music and effects
+    /// </summary>
+    public void StopMusicAndSfx()
+    {
+        StopMusic();
+        StopSfx();
+    }
+    
+    /// <summary>
+    /// Pause music and effects
+    /// </summary>
+    public void PauseMusicAndSfx()
+    {
+        PauseMusic();
+        PauseSfx();
+    }
+    
+    /// <summary>
+    /// Un pause music and effects
+    /// </summary>
+    public void UnPauseMusicAndSfx()
+    {
+        UnPauseMusic();
+        UnPauseSfx();
+    }
+    #endregion
 
     public void PlayMenuMoveSound()
     {

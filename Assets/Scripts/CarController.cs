@@ -46,6 +46,13 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Do nothing if game not running. Update still invoke event on Time.timeScale = 0
+        if (GameManager.State != GameManager.GameState.running)
+        {
+            return;
+        }
+        
+        // Process update
         carPos = new Vector3(0, 0, rb.position.z);
         speed = rb.velocity.magnitude;
         OperateGasAndSteering();

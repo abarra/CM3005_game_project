@@ -35,8 +35,6 @@ public class PlayerMovementProto : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
         float movement = Input.GetAxis("Vertical") * movementSpeed;
         float turn = Input.GetAxis("Horizontal");
 
@@ -47,8 +45,6 @@ public class PlayerMovementProto : MonoBehaviour
         _rb.MovePosition(this.transform.position + this.transform.forward * movement * Time.fixedDeltaTime);
 
         _rb.MoveRotation(_rb.rotation * angleRot);
-
-
     }
 }
 
