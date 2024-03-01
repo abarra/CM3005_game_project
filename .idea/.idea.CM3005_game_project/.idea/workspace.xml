@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Failed Attempt.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Failed Attempt.otf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Failed Attempt SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Failed Attempt SDF.asset.meta" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="chore: update rider settings">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovementProto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovementProto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Views/PauseMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Views/PauseMenuView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +24,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4High.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4Low.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/1b/a4634c48/NumberFormatInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/33/d7f2d706/Single.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/8e/1f614ce8/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/4b/325bee3c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/54/5d3cafac/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/a2/b1f9a160/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/e1/a7e552f6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/08/53ced540/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/b6/4c26587f/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Prefabs/UICanvas.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -127,7 +130,7 @@
       <workItem from="1708291251696" duration="29000" />
       <workItem from="1708291670243" duration="3690000" />
       <workItem from="1708753483670" duration="2016000" />
-      <workItem from="1709320858596" duration="1858000" />
+      <workItem from="1709320858596" duration="6296000" />
     </task>
     <task id="LOCAL-00001" summary="fix: merge refactored menu">
       <option name="closed" value="true" />
@@ -217,7 +220,47 @@
       <option name="project" value="LOCAL" />
       <updated>1708903609968</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: add new font">
+      <option name="closed" value="true" />
+      <created>1709325323774</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709325323774</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: add public State in GameManager">
+      <option name="closed" value="true" />
+      <created>1709325340020</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709325340020</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: add speedometer controller">
+      <option name="closed" value="true" />
+      <created>1709325361214</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709325361214</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: update ui look">
+      <option name="closed" value="true" />
+      <created>1709325373736</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709325373736</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chore: update rider settings">
+      <option name="closed" value="true" />
+      <created>1709325388494</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709325388494</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +283,11 @@
     <MESSAGE value="feat: use common functions from MenuView in Pause and Main menus" />
     <MESSAGE value="feat: game over view" />
     <MESSAGE value="feat: start win view" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: start win view" />
+    <MESSAGE value="feat: add new font" />
+    <MESSAGE value="feat: add public State in GameManager" />
+    <MESSAGE value="feat: add speedometer controller" />
+    <MESSAGE value="feat: update ui look" />
+    <MESSAGE value="chore: update rider settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update rider settings" />
   </component>
 </project>
