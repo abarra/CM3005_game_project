@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelTwo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelTwo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tourung Car Pack/Prefab/car.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tourung Car Pack/Prefab/car.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Failed Attempt.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Failed Attempt.otf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Failed Attempt SDF.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Failed Attempt SDF.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Views/MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Views/MainMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GamePlay.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GamePlay.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Alexis.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Alexis.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Hristo/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Hristo/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tourung Car Pack/Prefab/Chev666.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tourung Car Pack/Prefab/Chev666.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +27,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4High.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/b27d15d7576b4be1a331f44210c1b43e9400/e3/86693877/02000005pdb4Low.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/4b/325bee3c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/54/5d3cafac/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Testing/Ilya/MainMenuChanged.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Testing/Ilya/MuteButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/a2/b1f9a160/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/e1/a7e552f6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/b6/4c26587f/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -72,15 +70,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\alexi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\alexi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\alexi\\AppData\\Local\\Symbols\\src"
+      "/Users/iamelevich/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/iamelevich/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/iamelevich/.local/share/Symbols/src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2019.4.40f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -88,7 +86,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2019.4.40f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2019.4.40f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -105,10 +103,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11928">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="11928" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -129,35 +127,119 @@
       <workItem from="1708291251696" duration="29000" />
       <workItem from="1708291670243" duration="3690000" />
       <workItem from="1708753483670" duration="2016000" />
+      <workItem from="1709320858596" duration="1858000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: merge refactored menu">
+      <option name="closed" value="true" />
+      <created>1708778851656</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708778851656</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: imrove timer look and feel">
+      <option name="closed" value="true" />
+      <created>1708781375859</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708781375859</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: score manager, pause menu and some other improvements">
+      <option name="closed" value="true" />
+      <created>1708893193955</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708893193955</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: mailmap to clear commit history">
+      <option name="closed" value="true" />
+      <created>1708903444414</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903444414</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: move menu button in prefab">
+      <option name="closed" value="true" />
+      <created>1708903469041</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903469041</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: reset level and game over stuuf in game manager">
+      <option name="closed" value="true" />
+      <created>1708903503426</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903503426</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: formatted score in ScoreManager">
+      <option name="closed" value="true" />
+      <created>1708903537783</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903537783</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: some common function in MenuView">
+      <option name="closed" value="true" />
+      <created>1708903560679</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903560679</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: use common functions from MenuView in Pause and Main menus">
+      <option name="closed" value="true" />
+      <created>1708903585617</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903585617</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: game over view">
+      <option name="closed" value="true" />
+      <created>1708903601157</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903601157</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: start win view">
+      <option name="closed" value="true" />
+      <created>1708903609968</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708903609968</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs</url>
-          <line>48</line>
-          <properties documentPath="C:\Users\alexi\Documents\UOL\CM3005_game_project\Assets\Scripts\Managers\UIManager.cs" initialLine="48" containingFunctionPresentation="Method 'DeActivateView'">
-            <startOffsets>
-              <option value="1048" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1087" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix: merge refactored menu" />
+    <MESSAGE value="fix: imrove timer look and feel" />
+    <MESSAGE value="feat: score manager, pause menu and some other improvements" />
+    <MESSAGE value="feat: mailmap to clear commit history" />
+    <MESSAGE value="feat: move menu button in prefab" />
+    <MESSAGE value="feat: reset level and game over stuuf in game manager" />
+    <MESSAGE value="feat: formatted score in ScoreManager" />
+    <MESSAGE value="feat: some common function in MenuView" />
+    <MESSAGE value="feat: use common functions from MenuView in Pause and Main menus" />
+    <MESSAGE value="feat: game over view" />
+    <MESSAGE value="feat: start win view" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: start win view" />
   </component>
 </project>
