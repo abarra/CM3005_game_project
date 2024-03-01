@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameState _state;
     public static GameManager Instance { get { return _instance; } }
+    public static GameState State
+    {
+        get { return _instance._state; }
+    }
 
     public static event Action OnGameOver;
 
