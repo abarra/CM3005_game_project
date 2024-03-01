@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Audio;
 using static Enums;
@@ -121,7 +122,7 @@ public class SoundManager : MonoBehaviour
             this.PlayCongratulationsSound();
         }
     }
-    public void PlayCarSoundByState(CarStates state)
+    public void PlayCarSoundByState(CarStates state, int isPressed = 0)
     {
         switch (state)
         {
@@ -131,9 +132,65 @@ public class SoundManager : MonoBehaviour
                     PlayCarSoundDisableOthers(0);
                 }
                 break;
+            case CarStates.gear1:
+                if (!carSoundFXSrcs[1+isPressed].isPlaying)
+                {
+                    PlayCarSoundDisableOthers(1 + isPressed);
+                }
+                break;
+            case CarStates.gear2:
+                if (!carSoundFXSrcs[3 + isPressed].isPlaying)
+                {
+                    PlayCarSoundDisableOthers(3 + isPressed);
+                }
+                break;
+            case CarStates.gear3:
+                if (!carSoundFXSrcs[5 + isPressed].isPlaying)
+                {
+                    PlayCarSoundDisableOthers(5 + isPressed);
+                }
+                break;
+            case CarStates.harshTurn:
+                if (!isPlayingCarSoundsIndexRange(7, 10))
+                {
+                    PlayCarSoundFromRandomIndex(7, 10, false);
+                }
+                break;
+            case CarStates.brake:
+                if (!isPlayingCarSoundsIndexRange(10, 12))
+                {
+                    PlayCarSoundFromRandomIndex(10, 12);
+                    carSoundFXSrcs[0].Play();
+
+                }
+                break;
             default:
                 break;
         }
+    }
+    void PlayCarSoundFromRandomIndex(int indexMin, int indexMaxExclusive, bool disable = true)
+    {
+        int index = Random.Range(indexMin, indexMaxExclusive);
+        if (disable)
+        {
+            PlayCarSoundDisableOthers(index);
+        }
+        else
+        {
+            carSoundFXSrcs[index].Play();
+        }
+    }
+    bool isPlayingCarSoundsIndexRange(int indexStart, int indexEndExclusive)
+    {
+        bool playing = false;
+        for (int i = indexStart; i < indexEndExclusive; i++)
+        {
+            if (carSoundFXSrcs[i].isPlaying)
+            {
+                playing = true; break;
+            }
+        }
+        return playing;
     }
     void PlayCarSoundDisableOthers(int indexPlay)
     {

@@ -206,7 +206,7 @@ public class CarController : MonoBehaviour
                 break;
             default:
                 SetCarStateGearDrive();
-                if (state == CarStates.gear1 || state == CarStates.brake || state == CarStates.reverse)
+                if ( speed < 5f)
                 {
                     state = CarStates.neutral;
                 }
@@ -219,7 +219,14 @@ public class CarController : MonoBehaviour
         {
             state = CarStates.harshTurn;
         }
-        _sm.PlayCarSoundByState(state);
+        if (Input.GetAxisRaw("Vertical") == 1)
+        {
+            _sm.PlayCarSoundByState(state,1);
+        }
+        else
+        {
+            _sm.PlayCarSoundByState(state);
+        }
     }
     //call only when pressing forward
     private void SetCarStateGearDrive()
@@ -230,9 +237,9 @@ public class CarController : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
-                if (speed > 5f * i)
+                if (speed > 10f * i)
                 {
                     state = (CarStates)i;
                 }

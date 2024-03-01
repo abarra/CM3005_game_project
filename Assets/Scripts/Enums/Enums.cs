@@ -9,8 +9,6 @@ public class Enums
         gear1,
         gear2,
         gear3,
-        gear4,
-        gear5,
         neutral,
         reverse,
         brake,
