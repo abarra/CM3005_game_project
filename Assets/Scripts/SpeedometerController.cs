@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpeedometerController : MonoBehaviour
 {
     public TextMeshProUGUI speedText;
+    public float speedMultiplier = 5.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class SpeedometerController : MonoBehaviour
             {
                 var nfi = new CultureInfo( "en-US", false ).NumberFormat;
                 nfi.NumberDecimalDigits = 0;
-                speedText.text = car.speed.ToString("N", nfi);
+                speedText.text = (car.speed * speedMultiplier).ToString("N", nfi);
             }
             else
             {
