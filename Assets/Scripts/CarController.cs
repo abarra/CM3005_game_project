@@ -7,9 +7,9 @@ using static UnityEditorInternal.VersionControl.ListControl;
 public class CarController : MonoBehaviour
 {
     public CarStates state = CarStates.neutral;
-    Vector3 fwdValue;
-    Vector3 lastFwdValue;
-
+    public Vector3 carPos;
+    public float angle;
+    SoundManager _sm;
     [SerializeField] List<ParticleSystem> smokeParticles;
 
 
@@ -29,22 +29,24 @@ public class CarController : MonoBehaviour
     public float brakeTorque;
     public AnimationCurve steeringCurve;
 
+    float lastSpd;
     public float speed;
+    public Vector3 velocity;
     private float slipAngle;
     private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        fwdValue = transform.forward;
-        lastFwdValue = fwdValue;
         rb = GetComponent<Rigidbody>();
+        _sm = SoundManager.Instance;
+        lastSpd = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fwdValue = transform.forward;
+        carPos = new Vector3(0, 0, rb.position.z);
         speed = rb.velocity.magnitude;
         OperateGasAndSteering();
         ComputeAcceleration();
@@ -53,7 +55,9 @@ public class CarController : MonoBehaviour
         UpdateWheelsPosition();
         SetCarState();
         SetPlaySmoke();
-        lastFwdValue = fwdValue;
+        velocity = rb.velocity;
+        lastSpd = speed;
+        angle = Vector3.Dot(transform.forward.normalized, velocity.normalized);
     }
 
     private void OperateGasAndSteering()
@@ -119,7 +123,6 @@ public class CarController : MonoBehaviour
     //On collecting speed collectable
     public void AddSpeedForTime(float value)
     {
-        Debug.Log($"Speed:{speed + value}");
         float[] args = new float[2] { value, 2f };
         StartCoroutine("NewMotorTorqueForTime", args);
     }
@@ -128,12 +131,9 @@ public class CarController : MonoBehaviour
         float value = args[0];
         float duration = args[1];
         float oldMotorTorque = motorTorque;
-        //Debug.Log($"Motor Torque Before: {motorTorque}");
         motorTorque += value;
-        //Debug.Log($"Motor Torque During: {motorTorque}");
         yield return new WaitForSeconds(duration);
         motorTorque = oldMotorTorque;
-        //Debug.Log($"Motor Torque After: {motorTorque}");
     }
 
     void SetPlaySmoke()
@@ -188,32 +188,29 @@ public class CarController : MonoBehaviour
         CarStates lastState = state;
 
         float fwdDir = Input.GetAxisRaw("Vertical");
-        //if pressing forward
-        if (fwdDir > 0f)
-        {
-            SetCarStateGearDrive();
-        }
-        //if pressing back
-        else if (fwdDir < 0f)
-        {
 
-            if (fwdValue.z >= lastFwdValue.z)
-            {
-                state = CarStates.brake;
-            }
-            else
-            {
-                state = CarStates.reverse;
-            }
-        }
-
-        //if neutral
-        else
+        switch (Input.GetAxisRaw("Vertical"))
         {
-            if (state == CarStates.gear1 || state == CarStates.brake || state == CarStates.reverse)
-            {
-                state = CarStates.neutral;
-            }
+            case -1:
+                if (speed < lastSpd)
+                {
+                    state = CarStates.brake;
+                }
+                if (angle < 0)
+                {
+                    state = CarStates.reverse;
+                }
+                break;
+            case 1:
+                SetCarStateGearDrive();
+                break;
+            default:
+                SetCarStateGearDrive();
+                if (state == CarStates.gear1 || state == CarStates.brake || state == CarStates.reverse)
+                {
+                    state = CarStates.neutral;
+                }
+                break;
         }
 
         var steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
@@ -222,17 +219,14 @@ public class CarController : MonoBehaviour
         {
             state = CarStates.harshTurn;
         }
-        if (lastState != state)
-        {
-            Debug.Log($"State Shift: {state}");
-        }
+        _sm.PlayCarSoundByState(state);
     }
     //call only when pressing forward
     private void SetCarStateGearDrive()
     {
-        if(lastFwdValue.z >= fwdValue.z)
+        if (angle < 0)
         {
-            state = CarStates.gear1;
+            state = CarStates.brake;
         }
         else
         {
