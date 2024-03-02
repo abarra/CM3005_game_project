@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
     
     private void InitializeGame()
     {
+        // Set time scale to 0, to not run anything before game start
+        Time.timeScale = 0;
+        
         // Load the first level
         LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         UIManager.Instance.ActivateView("MainMenuView");
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _state = GameState.running;
+        Time.timeScale = 1;
         TimerManager.Instance.StartTimer();
         // Start level music
         SoundManager.Instance.PlayTheme();
@@ -117,6 +121,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _state = GameState.over;
+        
+        // Stop the scene
+        Time.timeScale = 0;
         
         // Stop music
         SoundManager.Instance.StopMusicAndSfx();
