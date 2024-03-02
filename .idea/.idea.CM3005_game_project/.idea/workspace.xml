@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix(pause-menu): refactor some code duplications">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/RespawnManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/RespawnManager.cs.meta" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: some RespawnManager refactoring.">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Overlays/HelpOverlay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Overlays/HelpOverlay.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +28,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/8e/1f614ce8/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/4b/325bee3c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/54/5d3cafac/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/6a/66aeb58a/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/a2/b1f9a160/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb58468f06534c078259ab9637bbe68f118a00/e1/a7e552f6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/08/53ced540/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/b6/4c26587f/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Prefabs/UICanvas.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/CarController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/RespawnManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/SpeedometerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -312,7 +314,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709393359771</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat: respawn manager and respawn player on click r">
+      <option name="closed" value="true" />
+      <created>1709395128881</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1709395128881</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix: some RespawnManager refactoring.">
+      <option name="closed" value="true" />
+      <created>1709395624235</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1709395624235</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +363,8 @@
     <MESSAGE value="feat: simple animation on collectables and Turbo text while booster active" />
     <MESSAGE value="fix: restart button on pause menu fix" />
     <MESSAGE value="fix(pause-menu): refactor some code duplications" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(pause-menu): refactor some code duplications" />
+    <MESSAGE value="feat: respawn manager and respawn player on click r" />
+    <MESSAGE value="fix: some RespawnManager refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: some RespawnManager refactoring." />
   </component>
 </project>
