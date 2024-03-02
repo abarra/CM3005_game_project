@@ -17,6 +17,8 @@ public class TimerManager : MonoBehaviour
     public static event Action OnTimerPaused;
 
     public TextMeshProUGUI timerText;
+    public Animator animator;
+    private static readonly int Bounce = Animator.StringToHash("Bounce");
 
     private void Awake()
     {
@@ -77,6 +79,7 @@ public class TimerManager : MonoBehaviour
     {
         currentTime += timeToAdd;
         UpdateTimerDisplay();
+        animator.SetTrigger(Bounce);
     }
 
     private void UpdateTimerDisplay()

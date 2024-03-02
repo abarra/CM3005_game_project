@@ -8,7 +8,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get { return _instance; } }
     
     public TextMeshProUGUI scoreText;
-    
+    public Animator animator;
+    private static readonly int Bounce = Animator.StringToHash("Bounce");
+
     public int Score {get; private set;}
 
     public string FormattedScore
@@ -50,6 +52,7 @@ public class ScoreManager : MonoBehaviour
     private void UpdateText()
     {
         scoreText.text = FormattedScore;
+        animator.SetTrigger(Bounce);
     }
 
 }

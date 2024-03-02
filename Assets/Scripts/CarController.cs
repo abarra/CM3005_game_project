@@ -11,8 +11,7 @@ public class CarController : MonoBehaviour
     public float angle;
     SoundManager _sm;
     [SerializeField] List<ParticleSystem> smokeParticles;
-
-
+    
     private const float SlipAngleMax = 120f;
     private const float FrontBrakeMultiplier = 0.7f;
     private const float RearBrakeMultiplier = 0.3f;
@@ -34,6 +33,8 @@ public class CarController : MonoBehaviour
     public Vector3 velocity;
     private float slipAngle;
     private Rigidbody rb;
+
+    public int ActiveBoostersCount { get; private set; } = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -128,19 +129,30 @@ public class CarController : MonoBehaviour
     }
 
     //On collecting speed collectable
-    public void AddSpeedForTime(float value)
+    public void AddSpeedForTime(float value, float duration = 2.0f)
     {
-        float[] args = new float[2] { value, 2f };
-        StartCoroutine("NewMotorTorqueForTime", args);
+        var args = new [] { value, duration };
+        StartCoroutine(nameof(NewMotorTorqueForTime), args);
     }
-    IEnumerator NewMotorTorqueForTime(float[] args)
+
+    private IEnumerator NewMotorTorqueForTime(IReadOnlyList<float> args)
     {
-        float value = args[0];
-        float duration = args[1];
-        float oldMotorTorque = motorTorque;
+        var value = args[0];
+        var duration = args[1];
+        // float oldMotorTorque = motorTorque;
+        
+        // Increase motor Torque
         motorTorque += value;
+        
+        // Increase active boosters counter due to booster start
+        ActiveBoostersCount+=1;
+        
         yield return new WaitForSeconds(duration);
-        motorTorque = oldMotorTorque;
+        // motorTorque = oldMotorTorque;
+        motorTorque -= value; // It's possible to have 2 or more boosters
+        
+        // Decrease active boosters counter due to booster end
+        ActiveBoostersCount-=1;
     }
 
     void SetPlaySmoke()
