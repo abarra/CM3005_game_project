@@ -12,8 +12,7 @@ public class PauseMenuView : MenuView
         // Resume game on ESC
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.ResumeGame();
-            CloseView();
+            ResumeGame();
         }
     }
 
