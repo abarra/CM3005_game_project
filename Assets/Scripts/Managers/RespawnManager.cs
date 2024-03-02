@@ -9,13 +9,10 @@ using UnityEngine;
 /// </summary>
 public class RespawnManager : MonoBehaviour
 {
-    [Header("Car")]
     [SerializeField] GameObject player;
 
     [Header("Respawn points")]
     [SerializeField] List<Transform> respawnPoints;
-
-    [SerializeField] TagField respawnPointsTag;
 
     // Update is called once per frame
     void Update()
@@ -23,14 +20,23 @@ public class RespawnManager : MonoBehaviour
         // Run on press r button
         if (Input.GetKeyDown(KeyCode.R))
         {
-            var closestRespawnPoint = GetClosetRespawnToPlayer();
-            if (!closestRespawnPoint) return;
-
-            var rb = player.GetComponent<Rigidbody>();
-            rb.position = closestRespawnPoint.position;
-            rb.rotation = closestRespawnPoint.rotation;
-            rb.velocity = new Vector3(0, 0, 0);
+            RespawnPlayer();
         }
+    }
+
+    /// <summary>
+    /// Respawn player in the nearest respawn point with 0 velocity
+    /// </summary>
+    public void RespawnPlayer()
+    {
+        var closestRespawnPoint = GetClosetRespawnToPlayer();
+        if (!closestRespawnPoint) return;
+            
+        // Move player to the nearest respawn point with 0 velocity
+        var rb = player.GetComponent<Rigidbody>();
+        rb.position = closestRespawnPoint.position;
+        rb.rotation = closestRespawnPoint.rotation;
+        rb.velocity = new Vector3(0, 0, 0);
     }
 
     /// <summary>
