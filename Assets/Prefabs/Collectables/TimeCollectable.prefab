@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructionParticles: {fileID: 5804237637110064201, guid: 62fedd36621674841b37747ac7cdaae4,
     type: 3}
-  timeValue: 5
+  timeValue: 30
 --- !u!1 &4050930465706269392
 GameObject:
   m_ObjectHideFlags: 0
