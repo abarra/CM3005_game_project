@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: some RespawnManager refactoring.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Overlays/HelpOverlay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Overlays/HelpOverlay.cs.meta" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="feat: help window that can be hide/unhide">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UICanvas.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709395624235</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feat: help window that can be hide/unhide">
+      <option name="closed" value="true" />
+      <created>1709397818004</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1709397818004</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +370,7 @@
     <MESSAGE value="fix(pause-menu): refactor some code duplications" />
     <MESSAGE value="feat: respawn manager and respawn player on click r" />
     <MESSAGE value="fix: some RespawnManager refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: some RespawnManager refactoring." />
+    <MESSAGE value="feat: help window that can be hide/unhide" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: help window that can be hide/unhide" />
   </component>
 </project>
