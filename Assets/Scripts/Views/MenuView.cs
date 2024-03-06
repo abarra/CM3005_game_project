@@ -10,6 +10,10 @@ public class MenuView : View
     [SerializeField] AudioSource onClickSound;
     
     #region Common listeners
+    /// <summary>
+    /// Load specific menu by name
+    /// </summary>
+    /// <param name="menuName"></param>
     public void OnButtonPressLoadMenu(string menuName)
     {
         Debug.Log($"Loading {menuName} menu");
@@ -29,6 +33,10 @@ public class MenuView : View
         }
     }
 
+    /// <summary>
+    /// Play on button press sound effect.
+    /// Should be assigned to all menu buttons
+    /// </summary>
     public void PlayButtonPressSoundEffect()
     {
         if (!onClickSound.isPlaying)
@@ -53,6 +61,19 @@ public class MenuView : View
     public void RestartLevel()
     {
         GameManager.Instance.RestartLevel();
+        CloseView();
+    }
+    
+    /// <summary>
+    /// Close current menu and open MainMenuView
+    /// </summary>
+    public void ToMainMenu()
+    {
+        // Reset current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Open main menu
+        UIManager.Instance.ActivateView("MainMenuView");
+        // Close current view
         CloseView();
     }
 }

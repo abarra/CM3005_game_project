@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         pause,
         running,
         over,
+        win,
     }
 
     private static GameManager _instance;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static event Action OnGameOver;
+    public static event Action OnGameWin;
 
     private void Awake()
     {
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour
         }
         
         // Check for game over condition
-        if (_state != GameState.over)
+        if (_state == GameState.running)
         {
             // Check other game conditions, handle player input, etc.
         }
@@ -133,5 +135,22 @@ public class GameManager : MonoBehaviour
 
         // Show Game Over screen
         UIManager.Instance.ActivateView("GameOverView");
+    }
+    
+    public void Win()
+    {
+        _state = GameState.win;
+        
+        // Stop the scene
+        Time.timeScale = 0;
+        
+        // Stop music
+        SoundManager.Instance.StopMusicAndSfx();
+        
+        // Run listeners
+        OnGameWin?.Invoke();
+
+        // Show Game Over screen
+        UIManager.Instance.ActivateView("WinView");
     }
 }

@@ -16,18 +16,12 @@ public class PauseMenuView : MenuView
         }
     }
 
+    /// <summary>
+    /// Resume current level
+    /// </summary>
     public void ResumeGame()
     {
         GameManager.Instance.ResumeGame();
-        CloseView();
-    }
-
-    /// <summary>
-    /// Close pause menu and open MainMenuView
-    /// </summary>
-    public void ToMainMenu()
-    {
-        UIManager.Instance.ActivateView("MainMenuView");
         CloseView();
     }
 }

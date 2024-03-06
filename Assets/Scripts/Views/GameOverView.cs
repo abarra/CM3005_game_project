@@ -10,18 +10,11 @@ public class GameOverView : MenuView
 {
     public TextMeshProUGUI scoreText;
 
-
+    /// <summary>
+    /// Runs on Activate to update score
+    /// </summary>
     public override void Activate()
     {
         scoreText.text = ScoreManager.Instance.FormattedScore;
-    }
-
-    /// <summary>
-    /// Close pause menu and open MainMenuView
-    /// </summary>
-    public void ToMainMenu()
-    {
-        UIManager.Instance.ActivateView("MainMenuView");
-        CloseView();
     }
 }

@@ -1,22 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinView : MenuView
 {
-    public void NextLevel()
-    {
-        
-    }
+    public TextMeshProUGUI scoreText;
 
     /// <summary>
-    /// Close pause menu and open MainMenuView
+    /// Runs on Activate to update score
     /// </summary>
-    public void ToMainMenu()
+    public override void Activate()
     {
-        UIManager.Instance.ActivateView("MainMenuView");
-        CloseView();
+        scoreText.text = ScoreManager.Instance.FormattedScore;
     }
 }
