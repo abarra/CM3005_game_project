@@ -72,6 +72,9 @@ public class GameManager : MonoBehaviour
         // Start level music
         SoundManager.Instance.PlayTheme();
         ScoreManager.Instance.ResetScore();
+
+        // emition level
+        EmotionController.Instance.Reset();
     }
 
     public void PauseGame()
