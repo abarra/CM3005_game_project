@@ -12,6 +12,9 @@ using UnityEngine.UI;
 
 public class EmotionController : MonoBehaviour
 {
+    private static EmotionController _instance;
+    public static EmotionController Instance { get { return _instance; } }
+
     public int satisfactionPoint;
     
     private enum SatisfactionLevels
@@ -53,11 +56,33 @@ public class EmotionController : MonoBehaviour
 
     public event ZeroLevelReached OnZeroLevelReached;
 
+    private void Awake()
+    {
+        // Singleton pattern implementation
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
 
     private void Start()
     {
         satisfactionLevel = SatisfactionLevels.High;
         satisfactionPoint = 100;
+    }
+
+    public void Reset()
+    {
+        satisfactionLevel = SatisfactionLevels.High;
+        satisfactionPoint = 100;
+
+        // reset the Emotion bar
+        OnSatisfactionIncreased?.Invoke(satisfactionPoint);
     }
     public void IncreaseSatisfuction(int amount) {
 
@@ -146,30 +171,15 @@ public class EmotionController : MonoBehaviour
         }
 
 
-        if (satisfactionLevel == 0) {
+        if (satisfactionPoint <= 1) {
             Debug.Log("Satisfaction level is too low. Game is over!");
             OnZeroLevelReached? .Invoke();
+            GameManager.Instance.GameOver();
         }
     }
 
     private void Update()
     {
-        /* TEST CODE */
-
-        if (Input.GetKeyDown(KeyCode.Space) ){
-
-            DecreaseSatisfuction(10);
-
-        }
-        /*
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-
-            IncreaseSatisfuction(10);
-
-        }
-       */
-        /**    **/
     }
 
 
