@@ -8,32 +8,30 @@ public class GameManager : MonoBehaviour
 {
     public enum GameState
     {
-        pause,
-        running,
-        over,
-        win,
+        Pause,
+        Running,
+        Over,
+        Win,
     }
 
-    private static GameManager _instance;
-    private GameState _state;
-    public static GameManager Instance { get { return _instance; } }
-    public static GameState State
-    {
-        get { return _instance._state; }
-    }
+    private GameState state;
+    public static GameManager Instance { get; private set; }
+
+    public static GameState State => Instance.state;
 
     public static event Action OnGameOver;
     public static event Action OnGameWin;
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        // Singleton functionality and do not destroy it instruction
+        if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
     }
@@ -64,33 +62,50 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
+    /// <summary>
+    /// Start game with all depends modules
+    /// </summary>
     public void StartGame()
     {
-        _state = GameState.running;
+        state = GameState.Running;
         Time.timeScale = 1;
         TimerManager.Instance.StartTimer();
         // Start level music
         SoundManager.Instance.PlayTheme();
+        // Reset score to 0
         ScoreManager.Instance.ResetScore();
 
         // emition level
         EmotionController.Instance.Reset();
     }
 
+    /// <summary>
+    /// Pause the game
+    /// </summary>
     public void PauseGame()
     {
-        _state = GameState.pause;
+        // Change game state to pause
+        state = GameState.Pause;
+        // Set timescale to 0 to stop running all time depending functions
         Time.timeScale = 0;
+        // Pause game timer
         TimerManager.Instance.PauseTimer();
         // Stop music
         SoundManager.Instance.PauseMusicAndSfx();
     }
 
+    /// <summary>
+    /// Resume game from pause
+    /// </summary>
     public void ResumeGame()
     {
-        _state = GameState.running;
+        // Change game state to running
+        state = GameState.Running;
+        // Set timescale to 1 to resume all time depends functions
         Time.timeScale = 1;
+        // Start timer
         TimerManager.Instance.StartTimer();
+        // Resume all music
         SoundManager.Instance.UnPauseMusicAndSfx();
     }
 
@@ -106,14 +121,14 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Pause menu check
-        if (_state == GameState.running && Input.GetKeyDown(KeyCode.Escape))
+        if (state == GameState.Running && Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
             UIManager.Instance.ActivateView("PauseMenuView");
         }
         
         // Check for game over condition
-        if (_state == GameState.running)
+        if (state == GameState.Running)
         {
             // Check other game conditions, handle player input, etc.
         }
@@ -123,9 +138,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stops the game level and activate GameOver view
+    /// </summary>
     public void GameOver()
     {
-        _state = GameState.over;
+        state = GameState.Over;
         
         // Stop the scene
         Time.timeScale = 0;
@@ -140,9 +158,12 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ActivateView("GameOverView");
     }
     
+    /// <summary>
+    /// Stops the game level and activates Win view
+    /// </summary>
     public void Win()
     {
-        _state = GameState.win;
+        state = GameState.Win;
         
         // Stop the scene
         Time.timeScale = 0;

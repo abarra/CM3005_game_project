@@ -47,8 +47,8 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Do nothing if game not running. Update still invoke event on Time.timeScale = 0
-        if (GameManager.State != GameManager.GameState.running)
+        // Do nothing if game not running. Update still running on Time.timeScale = 0
+        if (GameManager.State != GameManager.GameState.Running)
         {
             return;
         }

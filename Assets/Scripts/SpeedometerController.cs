@@ -19,7 +19,7 @@ public class SpeedometerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.State == GameManager.GameState.running)
+        if (GameManager.State == GameManager.GameState.Running)
         {
             CarController car = (CarController)FindObjectOfType(typeof(CarController));
             if (car)

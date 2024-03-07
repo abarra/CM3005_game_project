@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: improve help menu">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: improve help screen">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709761962416</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix: improve help screen">
+      <option name="closed" value="true" />
+      <created>1709833778458</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1709833778458</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +394,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="feat: mailmap to clear commit history" />
     <MESSAGE value="feat: move menu button in prefab" />
     <MESSAGE value="feat: reset level and game over stuuf in game manager" />
     <MESSAGE value="feat: formatted score in ScoreManager" />
@@ -410,6 +418,7 @@
     <MESSAGE value="fix: respawn points" />
     <MESSAGE value="feat: win menu" />
     <MESSAGE value="fix: improve help menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: improve help menu" />
+    <MESSAGE value="fix: improve help screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: improve help screen" />
   </component>
 </project>
