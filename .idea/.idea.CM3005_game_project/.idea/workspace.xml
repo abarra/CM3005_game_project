@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: improve help screen">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="refactor: some code styling changes and comments">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,13 +38,16 @@
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/CarController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Managers/RespawnManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/SpeedometerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpeedometerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/SpeedometerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scripts/Views/PauseMenuView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -53,6 +55,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -382,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709833778458</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="refactor: some code styling changes and comments">
+      <option name="closed" value="true" />
+      <created>1709834632848</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1709834632848</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +407,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="feat: move menu button in prefab" />
     <MESSAGE value="feat: reset level and game over stuuf in game manager" />
     <MESSAGE value="feat: formatted score in ScoreManager" />
     <MESSAGE value="feat: some common function in MenuView" />
@@ -419,6 +431,7 @@
     <MESSAGE value="feat: win menu" />
     <MESSAGE value="fix: improve help menu" />
     <MESSAGE value="fix: improve help screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: improve help screen" />
+    <MESSAGE value="refactor: some code styling changes and comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: some code styling changes and comments" />
   </component>
 </project>
