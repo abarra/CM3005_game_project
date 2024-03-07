@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: respawn points">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Views/Menu/Win.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Views/Menu/Win.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Views/WinView.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Views/WinView.prefab.meta" afterDir="false" />
+    <list default="true" id="d612837a-dccb-4deb-8f88-ed0e356b1474" name="Changes" comment="fix: improve help menu">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CM3005_game_project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boot.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Views/GameOverView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Views/GameOverView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Views/MenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Views/MenuView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Views/PauseMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Views/PauseMenuView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Views/WinView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Views/WinView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +32,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/08/53ced540/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d9ae5f4f71644eec82f4a477f79c6107ee00/b6/4c26587f/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Prefabs/UICanvas.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Boot.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Boot.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Boot.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/iamelevich/Projects/unity/CM3005_game_project/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
@@ -364,7 +357,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709758718573</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat: win menu">
+      <option name="closed" value="true" />
+      <created>1709759121487</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1709759121487</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: improve help menu">
+      <option name="closed" value="true" />
+      <created>1709761962416</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1709761962416</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,8 +385,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix: imrove timer look and feel" />
-    <MESSAGE value="feat: score manager, pause menu and some other improvements" />
     <MESSAGE value="feat: mailmap to clear commit history" />
     <MESSAGE value="feat: move menu button in prefab" />
     <MESSAGE value="feat: reset level and game over stuuf in game manager" />
@@ -401,6 +408,8 @@
     <MESSAGE value="feat: help window that can be hide/unhide" />
     <MESSAGE value="fix: respawn places updated and direction was fixed" />
     <MESSAGE value="fix: respawn points" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: respawn points" />
+    <MESSAGE value="feat: win menu" />
+    <MESSAGE value="fix: improve help menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: improve help menu" />
   </component>
 </project>
