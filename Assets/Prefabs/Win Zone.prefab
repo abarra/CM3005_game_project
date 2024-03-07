@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4577271743998331797}
   - component: {fileID: 8978018461314041669}
   - component: {fileID: 536261642748212423}
-  - component: {fileID: 9045174100375103148}
+  - component: {fileID: 6796621099914055600}
+  - component: {fileID: 7640619101288738467}
   m_Layer: 0
   m_Name: Win Zone
   m_TagString: Untagged
@@ -83,7 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &9045174100375103148
+--- !u!114 &6796621099914055600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +93,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2432225904310931463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16c3610416787c4899230b2e6aab3b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 33fb445662b8d2e42af6e1f43e07256c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b8fd3a47511684644a7b2b0a6fb0e642, type: 2}
+  minAlpha: 0.178
+  maxAlpha: 0.577
+--- !u!135 &7640619101288738467
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432225904310931463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2
+  m_Center: {x: 0, y: 0, z: -1}
 --- !u!1 &3560020074581453571
 GameObject:
   m_ObjectHideFlags: 0
