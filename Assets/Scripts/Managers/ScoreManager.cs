@@ -51,8 +51,15 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateText()
     {
-        scoreText.text = FormattedScore;
-        animator.SetTrigger(Bounce);
+        if (scoreText != null)
+        {
+            scoreText.text = FormattedScore;
+        }
+
+        if (animator != null)
+        {
+            animator.SetTrigger(Bounce);
+        }
     }
 
 }
