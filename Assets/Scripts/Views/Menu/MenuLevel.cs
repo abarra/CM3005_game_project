@@ -7,11 +7,14 @@ public class MenuLevel : MonoBehaviour
 {
     public void LoadLevelOne()
     {
+        // Load level scene
         SceneManager.LoadScene(1);
+        // Start game
+        GameManager.Instance.StartGame();
     }
     
     public void LoadLevelTwo()
     {
-        SceneManager.LoadScene(2);
+        // Not implemented
     }
 }

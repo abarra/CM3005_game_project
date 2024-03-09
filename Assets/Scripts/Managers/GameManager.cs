@@ -120,8 +120,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Pause menu check
-        if (state == GameState.Running && Input.GetKeyDown(KeyCode.Escape))
+        // Pause menu check. Run pause on P or ESC press
+        if (state == GameState.Running && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
         {
             PauseGame();
             UIManager.Instance.ActivateView("PauseMenuView");

@@ -9,8 +9,8 @@ public class PauseMenuView : MenuView
     protected override void Update()
     {
         base.Update();
-        // Resume game on ESC
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Resume game on ESC or P
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             ResumeGame();
         }
