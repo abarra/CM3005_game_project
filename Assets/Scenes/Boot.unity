@@ -1292,6 +1292,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5913341681243578653, guid: 2b3a89f9e354144dda21b81a25224a57,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913341681243578653, guid: 2b3a89f9e354144dda21b81a25224a57,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913341681243578653, guid: 2b3a89f9e354144dda21b81a25224a57,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 5913341681243578654, guid: 2b3a89f9e354144dda21b81a25224a57,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
