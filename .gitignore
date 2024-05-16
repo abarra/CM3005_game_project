@@ -73,3 +73,4 @@ crashlytics-build.properties
 
 # Mac files
 .DS_Store
+Assets/Materials/WinZoneTransparent.mat
